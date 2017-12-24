@@ -1,0 +1,77 @@
+#nav-top {
+    margin-bottom: 0;
+    background-color: #e51c19;
+    border: 0;
+    font-size: 11px !important;
+    letter-spacing: 4px;
+    opacity:0.9;
+    padding-left:40px;
+    padding-right:0px;
+}
+
+#nav-top .navbar-brand img{
+	width:200px;
+}
+
+#nav-top li a{ 
+    color: #d5d5d5 !important;
+}
+
+#nav-top .nav-item{
+	margin-top:1px;
+	margin-bottom:1px;
+}
+
+#nav-top .nav-item button:hover{
+    color: white !important;
+    background-color: green !important;
+}
+
+#nav-top .nav-item, #nav-mid .nav-item{
+		margin-left:5px;
+		margin-right:5px;
+}
+
+#nav-top input[type="button"][value="Search"]{
+	height:30px;
+	padding:3px;
+}
+
+#nav-top .navbar-text{
+	font-style:italic;
+	font-size:26px;
+	font-family: "Brush Script MT";
+	color:#efeded;
+	text-align:center;
+}
+
+/*2nd navigation bar starts here*/
+#nav-mid {
+    margin-bottom: 0;
+    background-color: #b20a0a;
+    border: 0;
+    font-size: 14px !important;
+    letter-spacing: 1px;
+    opacity:0.9;
+    border-radius:0;
+    padding:0px;
+    padding-left:30px; 
+    min-height:20px;
+}
+
+#nav-mid .nav-item:hover .nav-link{
+    color: #b20a0a !important;
+    background-color: #fff9f9 !important;
+}
+
+#nav-mid .nav-link{ 
+    color: #ffffff !important;
+}
+
+li:hover, button:hover{
+		cursor:pointer;
+} 
+
+#nav-top .navbar-toggler .navbar-toggler-icon, #nav-mid .navbar-toggler .navbar-toggler-icon{
+	background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}

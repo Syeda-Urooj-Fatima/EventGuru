@@ -1,0 +1,31 @@
+{
+	"Events":
+		[
+			"Breast Cancer Awareness Seminar",
+			"Millat ka Pasbaan",
+			"Hope for Syria",
+			"Sirat ul Jannah",
+			"Book Fair 8.0"
+		]
+}
+
+/*[{
+    "airportid": "JASB",
+    "size": "medium_airport",
+    "name": "John Bay Airport",
+    "lat": "18.57500076",
+    "lon": "36.5333004",
+}, {
+    "airportid": "JAAD",
+    "size": "closed",
+    "name": "Adelaide Airport",
+    "lat": "-12.68310165",
+    "lon": "16.2942009",
+}, {
+    "airportid": "JAAE",
+    "size": "small_airport",
+    "name": "Aberdeen Airport",
+    "lat": "-12.46670151",
+    "lon": "14.06669998",
+
+}]*/

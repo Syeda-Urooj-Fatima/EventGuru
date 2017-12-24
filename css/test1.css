@@ -1,0 +1,24 @@
+form div{
+	display:inline-block;
+}
+.event{
+	display:inline-block;
+	margin-bottom: 25px;
+}
+form{
+	text-align : center;
+}
+option:hover{
+	background-color: #e51c19;
+}
+h3{
+	color: #e51c19;
+}
+.personalbtn{
+	background-color: #e51c19;	
+}
+
+#map {
+    height: 400px;
+
+}

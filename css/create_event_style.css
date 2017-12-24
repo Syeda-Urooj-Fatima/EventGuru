@@ -1,0 +1,73 @@
+#map {
+    height: 500px;
+    width: 100%;
+    border: dashed #b20a0a 3.5px;
+    border-radius: 15px;
+}
+#pac-input {
+	background-color: #fff;
+	font-family: Roboto;
+	font-size: 15px;
+	font-weight: 300;
+	margin-left: 12px;
+	margin-top: 10px;
+	padding: 0 11px 0 13px;
+	text-overflow: ellipsis;
+	width: 400px;
+}
+.btn-custom {
+    color: white;
+    background-color: #b20a0a;
+}
+.btn-custom:hover, .btn-custom:focus, .btn-custom:active, .btn-custom.active, .open>.dropdown-toggle.btn-custom {
+    color: white;
+    opacity: 0.8;
+}
+.btn-grp-custom {
+	padding-left: 81px;
+}
+@media only screen and (max-width: 768px) {
+	.btn-grp-custom {
+		padding-left: 15px;
+		margin-bottom: 10px;
+	}
+	#pac-input{
+		width: 300px;
+	}
+}
+h2 {
+	color: #990000;
+}
+.file-area{
+	width: 100%;
+	min-height: 300px;
+	border: dashed #b20a0a 3.5px;
+	border-radius: 20px;
+}
+.step{
+	display: none;
+}
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+.btn-browse{
+	float: right;
+	margin-top: 10px;
+	margin-right: 10px;
+}

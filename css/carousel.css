@@ -1,0 +1,132 @@
+/* GLOBAL STYLES
+-------------------------------------------------- */
+/* Padding below the footer and lighter body text */
+
+/* Header and footer */
+
+
+  .modal{
+    font-family:"Cambria";
+  }
+   
+  .modal-body ul{
+    padding-left:0px;
+    font-family:"Cambria";
+
+  }
+   /*Universities*/
+   .carousel-inner > .carousel-item > img {
+    /* position: absolute;*/
+    margin-left: 0px;
+    margin-right: 0px;
+    min-width: 100%;
+    height: 590px;
+  }
+  .horizontal-line{
+    width: 88%;
+    margin-top: 60px;
+    margin-bottom: 60px;
+  }
+  #top-line,#bottom-line{
+    width: 100%;
+    margin-top: 60px;
+    margin-bottom: 60px;
+  }
+  
+ .uni{
+  /* padding: 5px; */
+  /* margin-left: 20px;
+  margin-right: 20px; */
+  width: 200px;
+  height: 170px;
+  margin-left: 75px;
+  padding-right: 0px;
+  padding-left: 0px;
+  font-family:"Cambria";
+  margin-top:10px;
+  background-color: white;
+	border: white 1px solid;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+
+ }
+
+ .uni:hover,.category:hover{
+   border:blue 1px solid;
+   color:blue;
+   /* box-shadow: 1px 1px 5px #b20808; */
+ }
+ .img-circle{
+   padding-top: 10px;
+ }
+ .university-category h3,.event-category h3{
+  font-family:"Cambria";
+  letter-spacing: 2px;
+  color: #b20a0a;
+  margin-top:20px;
+ }
+ .btn-danger{
+   background-color: #b2020a;
+ }
+ .university-category{
+  /* padding: 5px; */
+  margin-top:10px;
+  background-color: #f5f5f5;
+	/* border: #e4dfdf 1px solid; */
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+ }
+  .category{
+    width: 200px;
+    height: 170px;
+    margin-left: 75px;
+    padding-right: 0px;
+    padding-left: 0px;
+    /* margin-left: 20px;
+    margin-right: 20px; */
+    /* padding: 5px; */
+    font-family:"Cambria";
+    margin-top:10px;
+    background-color: white;
+    border: white 1px solid;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+  }
+  
+  .event-category{
+    /* padding: 5px; */
+    margin-top:10px;
+    background-color: #f5f5f5;
+    /*border: white 1px solid;*/
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px
+  }
+  
+  /* aligning the logos in center and adding margin-bottom*/
+  .university-category .col-lg-4, .event-category .col-lg-4
+  {
+
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  /* Modal */
+  li{
+    list-style-type: none;
+}
+.modal-header{
+  background-color:#b20808;
+  color:white;
+}
+
+.uni,.category{
+	 /* float:left; */
+	transition-duration: 0.5s;
+	}
+.uni:hover,.category:hover{
+	transform:scale(1.1);
+}	
+
