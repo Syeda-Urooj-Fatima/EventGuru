@@ -1,0 +1,86 @@
+body
+{
+    padding: none;
+    border:none;
+}
+ .event,.Sidebars,.comments
+ {
+    padding: 5%;
+ }
+ #map
+    {
+ 	 margin-right: 20px;
+     position: relative;
+ 	height: 200px;
+ 	width: 100%;
+     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+.comsub
+    {
+     position: relative;
+ 	height: 200px;
+ 	width: 100%;
+ 	background-color: #f2f2f2;
+     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+    .cal
+    {
+    text-align: center;
+    position: relative;
+    height: 130px;
+    width: 100%;
+    background-color: #f2f2f2;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+    .header
+    {
+        text-align: center;
+    	margin-top: 20px;
+    	position: relative;
+    	width: 100%;
+    	color:#fff;
+    	background-color:#e51c19;
+    	height:40px;
+    }
+    .comsub
+    {
+    	padding-left: 17%;
+    	padding-top: 5%;
+    	padding-bottom: 5%;
+    }
+    .ta
+    {
+    	height: 120px;
+    	width: 80%;
+    	background-color: white;
+         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+    #submit-comment
+    {
+        top: 10px;
+        position: relative;
+        background-color: #e60000;
+        border-style: none;
+        color:#fff;
+        border-radius: 5%;
+    }
+    .rating
+    {
+        position: relative;
+    height: 60px;
+    width: 100%;
+    background-color: #f2f2f2;
+    font-size: 25px;
+    color:#e60000;
+    text-align: center;
+     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+a
+{
+    color: black;
+}
+.comments
+{
+    padding-top: 0%;
+}

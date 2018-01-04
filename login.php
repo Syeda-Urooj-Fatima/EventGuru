@@ -146,7 +146,7 @@
     	<br/>
 		<div class="row">
 		    <div class="col-xs-12 col-md-6">
-		        <form action="" class="login" onsubmit="submitform()">
+		        <form action="authenticate.php" class="login"  method="post">
 		        	<h2>Log in</h2>
 		        	<div class="row">
 				        <div class="col-sm-12 form-group">
