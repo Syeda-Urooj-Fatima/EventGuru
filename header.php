@@ -42,7 +42,7 @@
 			});
 		</script>
 		<style>
-			#logout{
+			#logout,#create_event{
 				display:none;
 			}
 			a {
@@ -60,6 +60,10 @@
 			{
 				echo "<style> #login,#signup{display:none;}</style>";
 				echo "<style>#logout{display:inline;}</style>";	
+			}
+			if($_SESSION["admin"]==true)
+			{
+				echo "<style>#create_event{display:inline;}</style>";	
 			}
 		}
 	?>
@@ -104,6 +108,12 @@
 					<a href="logout.php?logout">	
 					<button class="btn btn-success btn-sm" type="submit" id="logout" data-toggle="tooltip" title="Logout" >
 							<i class="fa fa-sign-out"></i>Log out</button>
+					</a>
+					</li>
+					<li class="nav-item">
+					<a href="create_event.html">	
+					<button class="btn btn-success btn-sm" type="submit" id="create_event" data-toggle="tooltip" title="Create Event" >
+							<i class="fa fa-calendar"></i>Create Event</button>
 					</a>
 					</li>
 				</ul>
