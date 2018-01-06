@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <html>
@@ -173,8 +174,27 @@
 				          	<button class="btn btn-default btn-sm pull-right" type="submit">Log in</button>
 				        </div>
 				    </div>
+					<?php
+
+							if(isset($_SESSION["userinfo"]))
+							{
+
+								if($_SESSION["userinfo"]=="wrong")
+								{
+								?>
+									<div class="row">
+				       					 <div class="col-sm-12 form-group">
+				          				<span>Incorrect username/password.</span>
+				       					 </div>
+				    				</div>
+									<?php
+									unset($_SESSION["userinfo"]);
+								}
+							}
+					?>
 			    </form>
 		    </div>
+	
 			<div class="col-xs-12 col-md-6">
 				<form action="" class="signup" onsubmit="submitform()">
 					<h2>Sign Up</h2>
