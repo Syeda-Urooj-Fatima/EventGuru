@@ -105,7 +105,7 @@
 	<div class="container">
 	<div class="row">
 		<div class="card col-xs-12 col-lg-6 event" >
-		    <img class="card-img-top" src="2.jpg" alt="Card image" style="width:100%">
+		    <img class="card-img-top" src="images\2.jpg" alt="Card image" style="width:100%">
 		    <div class="card-body">
 		      <h4 class="card-title">NUST E-Gaming Competition</h4>
 		      <p class="card-text">
@@ -133,7 +133,7 @@
 		    </div>
 		</div>
 	    <div class="card col-xs-12 col-lg-6 event" >
-		    <img class="card-img-top" src="3.jpg" alt="Card image" style="width:100%">
+		    <img class="card-img-top" src="images\3.jpg" alt="Card image" style="width:100%">
 		    <div class="card-body">
 		      <h4 class="card-title">Breast Cancer Awareness Seminar</h4>
 		      <p class="card-text">
@@ -161,7 +161,7 @@
 	    	</div>
 		</div>
 		<div class="card col-xs-12 col-lg-6 event" >
-		    <img class="card-img-top" src="4.jpg" alt="Card image" style="width:100%">
+		    <img class="card-img-top" src="images\4.jpg" alt="Card image" style="width:100%">
 		    <div class="card-body">
 		      <h4 class="card-title">Sirat Ul Jannah Orphanage Visit</h4>
 		      <p class="card-text">
@@ -189,7 +189,7 @@
 	    	</div>
 		</div>
 		<div class="card col-xs-12 col-lg-6 event" >
-		    <img class="card-img-top" src="5.jpg" alt="Card image" style="width:100%">
+		    <img class="card-img-top" src="images\5.jpg" alt="Card image" style="width:100%">
 		    <div class="card-body">
 		      <h4 class="card-title">Saya School Visit 4.0</h4>
 		      <p class="card-text">
@@ -217,7 +217,7 @@
 	    	</div>
 		</div>
 		<div class="card col-xs-12 col-lg-6 event" >
-		    <img class="card-img-top" src="6.jpg" alt="Card image" style="width:100%">
+		    <img class="card-img-top" src="images\6.jpg" alt="Card image" style="width:100%">
 		    <div class="card-body">
 		      <h4 class="card-title">SEECS Drama Fest</h4>
 		      <p class="card-text">
@@ -245,7 +245,7 @@
 	    	</div>
 		</div>
 		<div class="card col-xs-12 col-lg-6 event" >
-		    <img class="card-img-top" src="7.jpg" alt="Card image" style="width:100%">
+		    <img class="card-img-top" src="images\7.jpg" alt="Card image" style="width:100%">
 		    <div class="card-body">
 		      <h4 class="card-title">SEECS Futsal League</h4>
 		      <p class="card-text">
