@@ -1,3 +1,6 @@
+<?php
+	session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,9 +44,29 @@
 				$('[data-toggle="tooltip"]').tooltip();
 			});
 		</script>
+		<style>
+			#logout{
+				display:none;
+			}
+			a {
+    			text-decoration: none !important;
+			}
+		</style>
+			 
 	</head>
 
 	<body>
+	<?php
+		if(isset($_SESSION["userinfo"]))
+		{
+			if($_SESSION["userinfo"]=="correct")
+			{
+				echo "<style> #login,#signup{display:none;}</style>";
+				echo "<style>#logout{display:inline;}</style>";	
+			}
+		}
+	?>
+	
 		<nav id="nav-top" class="navbar navbar-expand-lg">
 			<a class="navbar navbar-brand logo" href="index.php">
 				<img src="images/Logo 3.png" alt="logo">
@@ -72,18 +95,22 @@
 						</form>
 					</li>
 					<li class="nav-item">
-						<button class="btn btn-success btn-sm" type="submit" data-toggle="tooltip" title="For an existing account" onclick="location.href='login.php'">
+						<button class="btn btn-success btn-sm" type="submit" id="login" data-toggle="tooltip" title="For an existing account" onclick="location.href='login.php'">
 							<i class="fa fa-user"></i> Log in</button>
 					</li>
 					<li class="nav-item">
-						<button class="btn btn-success btn-sm" type="submit" data-toggle="tooltip" title="To create a new account" onclick="location.href='login.php'">
+						<button class="btn btn-success btn-sm" type="submit" id="signup" data-toggle="tooltip" title="To create a new account" onclick="location.href='login.php'">
 							<i class="fa fa-sign-in"></i> Sign up</button>
+					</li>
+					<li class="nav-item">
+					<a href="logout.php?logout">	
+					<button class="btn btn-success btn-sm" type="submit" id="logout" data-toggle="tooltip" title="Logout" >
+							<i class="fa fa-sign-out"></i>Log out</button>
+					</a>
 					</li>
 				</ul>
 			</div>
 		</nav>
-
-
 		<nav id="nav-mid" class="navbar navbar-expand-lg">
 			<button class="navbar-toggler col-xs-2" type="button" data-toggle="collapse" data-target="#collapsibleNavbar2">
 				<span class="navbar-toggler-icon"></span>
@@ -131,14 +158,14 @@
 
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item">
-						<a href="test.php" class="nav-link" href="#about">About</i>
+						<a  class="nav-link" href="#about">About</i>
 						</a>
 					</li>
 					<li class="nav-item">
-						<a href="test.php" class="nav-link" href="#contact">Contact Us</a>
+						<a  class="nav-link" href="#contact">Contact Us</a>
 					</li>
 					<li class="nav-item">
-						<a href="test.php" class="nav-link" href="#rate">Rate Us</a>
+						<a class="nav-link" href="#rate">Rate Us</a>
 					</li>
 				</ul>
 			</div>
