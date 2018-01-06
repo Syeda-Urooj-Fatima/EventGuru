@@ -68,8 +68,13 @@
     color: #ffffff !important;
 }
 
+#navbar-collapse-title{
+    color: #ffffff;
+    font-size: 19px;
+}
+
 li:hover, button:hover{
-		cursor:pointer;
+	cursor:pointer;
 } 
 
 #nav-top .navbar-toggler .navbar-toggler-icon, #nav-mid .navbar-toggler .navbar-toggler-icon{

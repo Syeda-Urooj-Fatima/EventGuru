@@ -8,22 +8,19 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Header</title>
-		<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"/>-->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"/>
 
-		<!-- jQuery library -->
-		<!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-		<!-- Popper JS -->
-		<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>-->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
 
-		<!-- Latest compiled JavaScript -->
-		<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>-->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
 
-		<!--<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>-->
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 
 		<!-- <link rel="stylesheet" type="text/css" href="plugins/rateit.js-master/scripts/rateit.css"/>
 		<script src="plugins/rateit.js-master/scripts/jquery.rateit.min.js"></script> -->
-		<!--<link rel="icon" href="images/icon.png"/>-->
+		<link rel="icon" href="images/icon.png"/>
 
 		<link rel="stylesheet" href="css/header.css"/>
 
@@ -74,7 +71,6 @@
 				}
 		}
 	?>
-	
 		<nav id="nav-top" class="navbar navbar-expand-lg">
 			<a class="navbar navbar-brand logo" href="index.php">
 				<img src="images/Logo 3.png" alt="logo">
@@ -83,7 +79,9 @@
 			<span class="navbar-text">All events at one place</span>
 
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar1">
-				<span class="navbar-toggler-icon"></span>
+				<span data-toggle="tooltip" title="Click to login/signup">
+					<span class="navbar-toggler-icon"></span>
+				</span>
 			</button>
 
 
@@ -127,7 +125,10 @@
 		</nav>
 		<nav id="nav-mid" class="navbar navbar-expand-lg">
 			<button class="navbar-toggler col-xs-2" type="button" data-toggle="collapse" data-target="#collapsibleNavbar2">
-				<span class="navbar-toggler-icon"></span>
+				<span data-toggle="tooltip" title="Click to see more">
+					<span id="navbar-collapse-title">Event Categories&nbsp;&nbsp;&nbsp;</span>
+					<span class="navbar-toggler-icon"></span>
+				</span>
 			</button>
 
 			<!-- Navbar links -->
