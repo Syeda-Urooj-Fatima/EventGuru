@@ -61,10 +61,13 @@
 				echo "<style> #login,#signup{display:none;}</style>";
 				echo "<style>#logout{display:inline;}</style>";	
 			}
+			if(isset($_SESSION["admin"]))
+			{
 			if($_SESSION["admin"]==true)
 			{
 				echo "<style>#create_event{display:inline;}</style>";	
 			}
+		}
 		}
 	?>
 		<nav id="nav-top" class="navbar navbar-expand-lg">
