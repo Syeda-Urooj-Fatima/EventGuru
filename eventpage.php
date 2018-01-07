@@ -32,14 +32,13 @@
 				new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
 			}
         </script>
+
 	</head>
 
 	<body>
         <?php
             include "header.php"; 
         ?>
-		
-		
 		<div id="google_translate_element">
 		</div>
 		<div class="container">
@@ -113,12 +112,8 @@
 					</div>
 					<div class="comsub">
 						<form>
-							<textarea class="form-control ta">
-						
-					</textarea>
-							<button id="submit-comment">
-								Submit
-							</button>
+							<textarea class="form-control ta" id="comment-textarea"></textarea>
+							<button id="submit-comment">Submit</button>
 						</form>
 					</div>
 					<br>
@@ -168,6 +163,24 @@
 			}
 
 		</script>
+			<?php
+			if(isset($_SESSION["userinfo"]))
+			{
+				if($_SESSION["userifno"]=="correct")
+				{
+					echo "<script type=\"text/javascript\">
+						document.getElementById('comment-textarea').disabled=false;
+						</script>";
+				}
+			}
+			elseif(!isset($_SESSION["userinfo"]) or $_SESSION["userifno"]=="wrong")
+			{
+				echo "<script type=\"text/javascript\">
+						document.getElementById('comment-textarea').disabled=true;
+						</script>";
+			}
+		?>
+		
 	</body>
 
 </html>
