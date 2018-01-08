@@ -17,7 +17,7 @@
   border: 2px solid maroon !important;
 }
 
-.poor{
+.poor, .success{
   border: 2px solid red !important;
 }
 
