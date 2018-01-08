@@ -6,7 +6,7 @@ Inter University Web Portal for Event Management
 Group Members:
 Abdul Qadir
 Danial Ahmed
-Abdul Haseeb Awan
+Abdul Haseeb Awan (I am the King).
 Ayesha Anjum
 Syeda Urooj Fatima
 
