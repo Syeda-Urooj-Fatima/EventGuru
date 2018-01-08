@@ -24,7 +24,7 @@
     opacity: 0.8;
 }
 .btn-grp-custom {
-	padding-left: 81px;
+	float: right;
 }
 @media only screen and (max-width: 768px) {
 	.btn-grp-custom {
