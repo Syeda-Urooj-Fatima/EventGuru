@@ -2,6 +2,7 @@
 <html lang="en">
 <html>
 <head>
+	
     <meta charset="utf-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1">	
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
@@ -19,43 +20,82 @@
 	<!-- <script src="plugins/rateit.js-master/scripts/jquery.rateit.min.js"></script>
 	<link rel="icon" href="images/icon.png">	 -->
 
+	<?php
+		$con = mysqli_connect("localhost","User1","user1.123","event_guru");
+		// Check connection
+		if (mysqli_connect_errno())
+		  {
+		  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+		  }
+		  $sqlUni = "SELECT * FROM university";
+		  $resultUni = $con->query($sqlUni);
+		  $locate = $con->query("SELECT EventTitle, VenuLat, VenuLng FROM event");
+		  $sql = "SELECT EventTitle, SocietyId, EventDate, EventTime, Category FROM event";
+		  $result = $con->query($sql);
+		  if ($result->num_rows > 0) {
+		    $row = $result->fetch_assoc();
+		  for($i=0; $i<$locate->num_rows; $i++)
+		    $loca[$i] = $locate->fetch_array();
+		} 
+		else {
+		    echo "0 results";
+		}
 
-	<script type="text/javascript">
+	?>
 
-		function initMap() {
-		        var bounds = new google.maps.LatLngBounds();
-		        var uluru = {lat: 33.642386, lng: 72.992274};
-		        var map = new google.maps.Map(document.getElementById('map'), {
-			        zoom: 10,
-			        center: uluru
-		        });
-				var markers = [[33.642386, 72.992274],[33.676039, 73.013917], [33.713636, 73.024354], [31.469905, 74.410507],[31.573134, 74.308384],
-		        [31.521933, 74.333660]];
-				for( i = 0; i < markers.length; i++ ) {
-			        var position = new google.maps.LatLng(markers[i][0], markers[i][1]);
-			        bounds.extend(position);
-			        marker = new google.maps.Marker({
-			            position: position,
-			            map: map
-			        });
-			    }
-		    }
-		    $(document).ready(function(){
-    			$("#header").load("header.html");
-    			$("#footer").load("footer.html");
-    			$('[data-toggle="popover"]').popover();
-    			$('[data-toggle="tooltip"]').tooltip();
-   
-			});
+<script type="text/javascript">
+		window.initMap = function(){
+	        var bounds = new google.maps.LatLngBounds();
+	        var Center = {lat: 31.1234, lng: 71.1235};
+	        var map = new google.maps.Map(document.getElementById('map'), {
+		        zoom: 6,
+		        center: Center,
+		        mapTypeId: google.maps.MapTypeId.ROADMAP
+	        });
+
+	        var infowindow = new google.maps.InfoWindow();
+			var marker, i;
+			<?php $j=0; ?>;
+			for( i = 0; i < <?php echo $locate->num_rows;  ?> ; i++ ) {
+						
+				var lati= "<?php echo $loca[$j]['VenuLat'];?>";
+				var longi = "<?php echo $loca[$j]['VenuLng'];?>";
+				var loci = "<?php echo $loca[$j]['EventTitle'];?>";
+				console.log(lati);
+				console.log(longi);
+				console.log(loci);
+				var loci;
+				marker = new google.maps.Marker({
+			        position: new google.maps.LatLng( lati, longi),
+			        map: map
+			    });
+
+			    google.maps.event.addListener(marker, 'click', (function(marker, i) {
+			        return function() {
+			          infowindow.setContent(loci);
+			          infowindow.open(map, marker);
+			        }
+			    })(marker, i)); 
+			<?php $j=$j+1; ?>;
+			}
+	    }
+	    $(document).ready(function(){
+			$("#header").load("header.html");
+			$("#footer").load("footer.html");
+			$('[data-toggle="popover"]').popover();
+			$('[data-toggle="tooltip"]').tooltip();
+		});
 	</script>
 </head>
 <body>
+		
 <!-- HEADER -->
     <?php
         include "header.php"; 
     ?>
 	
 <!--  My file starts here -->	
+
 <br><br>
  	<div class="container">
 	<form>
@@ -89,9 +129,9 @@
 	</div>
 	<div id="outerdiv" class="container"><br>
 		<h3>Location of Events</h3>
-		<div id="map" class="col-lg-12" style="overflow: visible; border: 2px solid black" data-toggle="tooltip" data-placement="top" title="You can See the Location of Images based on your search criteria">
-	    	<script async defer
-	   		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8uHRgA738vy7LakOFAJo_7PONPzrEiK4&callback=initMap">
+		<div id="map" class="col-lg-12" style="overflow: visible; border: 2px solid black" data-toggle="tooltip" data-placement="top" title="You can See the Location of all Events">
+	    	<script 
+	   		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDucSpoWkWGH6n05GpjFLorktAzT1CuEc&callback=initMap">
 			</script>
 		</div>
 	</div><br><br>
@@ -107,17 +147,22 @@
 		<div class="card col-xs-12 col-lg-6 event" >
 		    <img class="card-img-top" src="images\2.jpg" alt="Card image" style="width:100%">
 		    <div class="card-body">
-		      <h4 class="card-title">NUST E-Gaming Competition</h4>
+		      <h4 class="card-title"><?php echo $row["EventTitle"]; ?></h4>
 		      <p class="card-text">
 		      	<b><i class="fa fa-suitcase"></i> Organization Name: </b>TABA Youth Chapter NUST<br>
 		      	<b><i class="fa fa-university"></i> University: </b>National University of Science and Technology<br>
 		      	<b><i class="fa fa-calendar-o"></i> Time & Date: </b>5pm - 10pm : Dec 4, 2017<br>
 		      	<b><i class="fa fa-star"></i> Host Rating: </b>
-		      		<span class="fa fa-star"></span>
-					<span class="fa fa-star"></span>
-					<span class="fa fa-star"></span>
-					<span class="fa fa-star"></span>
-					<span class="fa fa-star-o"></span>
+		      	<?php 
+		      	$x=4; 
+		      	while($x){ 
+		      	echo "<span class='fa fa-star'></span>";
+		      	$x = $x-1;
+		      	}
+		      	{
+				echo "<span class='fa fa-star-o'></span>";
+				}
+				?>	
 				 <br>
 		      	<b><i class="fa fa-arrow-right"></i> Type: </b>E-Gaming <br>
 		      </p>
@@ -132,7 +177,7 @@
 				</div>
 		    </div>
 		</div>
-	    <div class="card col-xs-12 col-lg-6 event" >
+<!-- 	    <div class="card col-xs-12 col-lg-6 event" >
 		    <img class="card-img-top" src="images\3.jpg" alt="Card image" style="width:100%">
 		    <div class="card-body">
 		      <h4 class="card-title">Breast Cancer Awareness Seminar</h4>
@@ -271,13 +316,17 @@
 					</select>
 				</div>
 	    	</div>
-		</div>
+		</div> -->
 	</div>
 </div>
 
 	<!--My CONTENT ENDS HERE--> 
+<br/><br/>
+	<div id="footer_bottom">
+       &copy; All rights reserved
+	</div>
 <?php
-     include "footer.php";
+     $con->close();
 ?>
 	
 </body>
