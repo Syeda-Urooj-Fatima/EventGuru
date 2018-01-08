@@ -1,6 +1,4 @@
-<?php
-	session_start();
-?>
+<!--<?php// session_start(); ?>-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,8 +18,8 @@
 
 		<!-- <link rel="stylesheet" type="text/css" href="plugins/rateit.js-master/scripts/rateit.css"/>
 		<script src="plugins/rateit.js-master/scripts/jquery.rateit.min.js"></script> -->
-		<!--<script  type="text/javascript" src="plugins/typeahead.bundle.js"></script>
-		<link rel="icon" href="images/icon.png"/>-->
+		<!--<script  type="text/javascript" src="plugins/typeahead.bundle.js"></script>-->
+		<link rel="icon" href="images/icon.png"/>
 
 		<link rel="stylesheet" href="css/header.css"/>
 
