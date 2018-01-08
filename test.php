@@ -15,6 +15,7 @@
 	<script src="js/footer.js"></script>
  	<link rel="stylesheet" type="text/css" href="css/header.css">
 	<link rel="stylesheet" type="text/css" href="css/footer.css">
+	<script  type="text/javascript" src="plugins/typeahead.bundle.js"></script>
  	<link rel="stylesheet" type="text/css" href="plugins/rateit.js-master/scripts/rateit.css"/>
 	<!-- <script src="plugins/rateit.js-master/scripts/jquery.rateit.min.js"></script>
 	<link rel="icon" href="images/icon.png">	 -->
@@ -58,7 +59,7 @@
 <!--  My file starts here -->	
 <br><br>
  	<div class="container">
-	<form>
+	<form id="comboBox">
 		<div class="row">
 		<div class="col-lg-2"></div>
 		<div class="col-lg-4 col-lg-offset-2">

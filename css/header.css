@@ -7,6 +7,7 @@
     opacity:0.9;
     padding-left:40px;
     padding-right:0px;
+    z-index:3;
 }
 
 #nav-top .navbar-brand img{
@@ -23,13 +24,13 @@
 }
 
 #nav-top .nav-item button:hover{
-    color: white !important;
-    background-color: green !important;
+  color: white !important;
+  background-color: green !important;
 }
 
 #nav-top .nav-item, #nav-mid .nav-item{
-		margin-left:5px;
-		margin-right:5px;
+  margin-left:5px;
+	margin-right:5px;
 }
 
 #nav-top input[type="button"][value="Search"]{
@@ -57,6 +58,7 @@
     padding:0px;
     padding-left:30px; 
     min-height:20px;
+    z-index:1;
 }
 
 #nav-mid .nav-item:hover .nav-link{
@@ -70,7 +72,7 @@
 
 #navbar-collapse-title{
     color: #ffffff;
-    font-size: 18px;
+    font-size: 19px;
 }
 
 li:hover, button:hover{
@@ -79,4 +81,44 @@ li:hover, button:hover{
 
 #nav-top .navbar-toggler .navbar-toggler-icon, #nav-mid .navbar-toggler .navbar-toggler-icon{
 	background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.typeahead, .tt-hint {
+  border: 2px solid #CCCCCC;
+  border-radius: 4px;
+  font-size: 15px; 
+  height: 30px;
+  line-height: 30px;
+  letter-spacing: 1px;
+  outline: none;
+  padding: 8px 12px;
+}
+
+.typeahead:focus {
+  border: 2px solid #b20a0a !important;
+}
+
+.tt-hint {
+  color: #999999;
+}
+
+.tt-menu {
+  background-color: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  /*margin-top: 0px;*/
+  padding: 3px 3px;
+}
+
+.tt-suggestion {
+  font-size: 15px;  /* Set suggestion dropdown font size */
+  padding: 4px 20px;
+  letter-spacing: 1px;
+}
+
+.tt-suggestion:hover {
+  cursor: pointer;
+  background-color: #bf1c1c;
+  color: #FFFFFF;
 }

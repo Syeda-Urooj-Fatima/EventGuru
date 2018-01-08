@@ -9,7 +9,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Header</title>
 		<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"/>
-
+		
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
@@ -20,26 +20,39 @@
 
 		<!-- <link rel="stylesheet" type="text/css" href="plugins/rateit.js-master/scripts/rateit.css"/>
 		<script src="plugins/rateit.js-master/scripts/jquery.rateit.min.js"></script> -->
-		<!--<link rel="icon" href="images/icon.png"/>-->
+		<!--<script  type="text/javascript" src="plugins/typeahead.bundle.js"></script>
+		<link rel="icon" href="images/icon.png"/>-->
 
 		<link rel="stylesheet" href="css/header.css"/>
 
 		<script>
-			$("#search").keypress(function (event) { /*When enter button is clicked within the search box*/
-				if (event.keyCode === 13) {
-					$("#search-btn").click();
-				}
-			});
-
-			$(document).ready(function () {
-				$("#search-btn").click(function () {
-					alert("Search button clicked");
-				})
-			});
 
 			$(document).ready(function () {
 				$('[data-toggle="tooltip"]').tooltip();
 			});
+
+			$(document).ready(function(){
+			    // Sonstructs the suggestion engine
+			    var events = new Bloodhound({
+			        datumTokenizer: Bloodhound.tokenizers.obj.whitespace('EventTitle'),
+			        queryTokenizer: Bloodhound.tokenizers.whitespace,
+			        remote: {
+			        url: 'searchEvents.php?query=%QUERY',
+			        wildcard: '%QUERY'
+			      }
+			    });
+			    
+			    events.initialize();
+			    // Initializing the typeahead with remote dataset
+			    $('.typeahead').typeahead({
+			        highlight:true,
+			      }, {
+			        name: 'events',
+			        displayKey:'EventTitle',
+			        source: events,
+			        limit: 10 /* Specify maximum number of suggestions to be displayed */
+			    });
+			});  
 		</script>
 		<style>
 			#logout,#create_event{
@@ -88,11 +101,11 @@
 			<div class="collapse navbar-collapse" id="collapsibleNavbar1">
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item">
-						<form action="" onsubmit="submitform()">
-							<div class="input-group">
-								<input type="text" id="search" class="form-control form-control-sm" placeholder="Search an event">
+						<form action="" method="GET" onsubmit="submitform()">
+							<div class="input-group input-group-sm">
+								<input type="text" name='query' id="search" class="typeahead" placeholder="Search an event" autocomplete="off" spellcheck="false">
 								<span class="input-group-btn">
-									<button id="search-btn" class="btn btn-success btn-sm" type="submit">
+									<button id="search-btn" class="btn btn-success btn-sm" type="submit" formaction="searchEvents.php">
 										<i class="fa fa-search"></i>
 									</button>
 								</span>

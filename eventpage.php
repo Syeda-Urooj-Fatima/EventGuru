@@ -27,6 +27,7 @@
         <script src="head_foot.js"></script> -->
         
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+		<script  type="text/javascript" src="plugins/typeahead.bundle.js"></script>
 		<script type="text/javascript">
 			function googleTranslateElementInit() {
 				new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');

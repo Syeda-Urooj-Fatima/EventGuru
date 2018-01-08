@@ -1,12 +1,12 @@
-form div{
+#comboBox div{
 	display:inline-block;
 }
 .event{
 	display:inline-block;
 	margin-bottom: 25px;
 }
-form{
-	text-align : center;
+#comboBox{
+	text-align: center;
 }
 option:hover{
 	background-color: #e51c19;
