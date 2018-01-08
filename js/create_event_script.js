@@ -2,6 +2,11 @@ var curStep = 1;
 var posterFile;
 var img;
 
+$(window).scroll(function (){
+	$("#pageHead").addClass("sticky");
+	$("#step1").addClass("stickyBrother");
+});
+
 $(window).resize(function (){
 	var w = $("#poster-area").width();
 	var h = (9/16)*w;
@@ -62,7 +67,7 @@ function save() {
 	$("#form-date").val(d);
 	$("#form-time").val(t);
 	$("#form-name").val($("#event-name").val());
-	$("#form-category").val($("#event-desc").val());
+	$("#form-category").val($("#event-cat").val());
 	$("#form-description").val($("#event-desc").val());
 	$("#form-address").val($("#address").val());
 	$("#form-email").val($("#contact-email").val());
@@ -86,16 +91,15 @@ function save() {
 }
 
 function cancel() {
-
+	window.history.back();
 }
 
 function goTo(step) {
+	$("#pageHead").addClass("sticky");
+	$("#step1").addClass("stickyBrother");
 	if (step==curStep) {return}
 	$("#tab"+curStep).attr('class','');
 	$("#tab"+step).attr('class','active');
 	$(".progress-bar").css('width',step*25+"%");
-	$("#step"+curStep).slideUp(500,function() {
-		$("#step"+step).fadeIn(500);
-	});
 	curStep = step;
 }

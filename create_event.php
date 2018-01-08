@@ -28,23 +28,26 @@
 
 <body>
 
-	<div class="container" id="pageHead" style="margin-top: 50px;">
-		<ul class="nav nav-tabs" style="margin-bottom: 10px;">
-			<li id="tab1" class="active" onclick="goTo('1')"><a style="color: #b20a0a">Name and Poster</a></li>
-			<li id="tab2" onclick="goTo('2')"><a style="color: #b20a0a">Time and Date</a></li>
-			<li id="tab3" onclick="goTo('3')"><a style="color: #b20a0a">Event Venue</a></li>
-			<li id="tab4" onclick="goTo('4')"><a style="color: #b20a0a">Other Information</a></li>
+
+	<div class="container" id="pageHead">
+		<div style="height: 30px; background-color: #b20a0a; margin-bottom: 20px;"></div>
+		<ul class="md-friendly nav nav-tabs" style="margin-bottom: 10px;">
+			<li id="tab1" class="active" onclick="goTo('1')"><a href="#step1" style="color: #b20a0a">Name and Poster</a></li>
+			<li id="tab2" onclick="goTo('2')"><a href="#step2" style="color: #b20a0a">Time and Date</a></li>
+			<li id="tab3" onclick="goTo('3')"><a href="#step3" style="color: #b20a0a">Event Venue</a></li>
+			<li id="tab4" onclick="goTo('4')"><a href="#step4" style="color: #b20a0a">Other Information</a></li>
 		</ul>
-		<div class="progress">
+		<div class="progress md-friendly">
 	  		<div class="progress-bar progress-bar-danger" style="width:25%"></div>
 	    </div>
 		<div class="btn-group btn-grp-custom">
 			<button id="nextButton" class="btn btn-custom" onclick="save()">Save &amp Proceed</button>
 			<button id="prevButton" class="btn btn-default" onclick="cancel()">Cancel</button>		
 		</div>
+		<hr style="margin-top: 70px;">
 	</div>
 
-	<div id="step1" class="container step" style="display: block;">
+	<div id="step1" class="container step">
 		<h2>Name and Poster</h2>
 		<hr>
 		<div class="row" style="margin-left: 10px; margin-right: 10px">
@@ -52,11 +55,11 @@
 				<h5><b>Event Name:</b></h5>
 				<input type="text" class="form-control" id="event-name"><br>
 				<h5><b>Event Category:</b></h5>
-				<select class="form-control" id="sel1">
-					<option>None</option>
-				    <option>Music</option>
-				    <option>Gala</option>
-				    <option>Competition</option>
+				<select class="form-control" id="event-cat">
+					<option value="Seminar">Seminar</option>
+				    <option value="Music">Music</option>
+				    <option value="Gala">Gala</option>
+				    <option value="Competition">Competition</option>
 			  	</select><br>
 				<h5><b>Description:</b></h5>
 				<textarea class="form-control" rows="5" id="event-desc"></textarea><br>
@@ -73,6 +76,7 @@
 	</div>
 
 	<div id="step2" class="container step">
+		<hr>
 		<h2>Time and Date</h2>
 		<hr>
 	    <div class="form-group">
@@ -89,6 +93,7 @@
 	</div>
 
 	<div id="step3" class="container step">
+		<hr>
 		<h2>Event Venue</h2>
 		<hr>
 		<div class="row">
@@ -118,6 +123,7 @@
 	</div>
 
 	<div id="step4" class="container step">
+		<hr>
 		<h2>Other Information</h2>
 		<hr>
 		<div class="row">
@@ -148,6 +154,7 @@
 			</div>
 		</div>
 	</div>
+	<div style="height: 30px; background-color: #b20a0a; margin-top: 20px;"></div>
 
 	<form action="target.php" method="post" hidden id="myform">
 		<input id="form-name" name="name">
