@@ -18,6 +18,8 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>	
 
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+	<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
     <!-- <link rel="stylesheet" type="text/css" href="plugins/rateit.js-master/scripts/rateit.css"/>
 	<script src="plugins/rateit.js-master/scripts/jquery.rateit.min.js"></script>	 -->
@@ -49,7 +51,11 @@
 			mysqli_query($conn,$query);
 			if(mysqli_affected_rows($conn)>0)
 			{
-				echo "<script> console.log('Haha'); </script>";
+				echo "<script type='text/javascript'>
+						$(document).ready(function(){
+							$('#myModal').modal('show');
+						});
+						</script>";
 			}
 			else if(mysqli_affected_rows($conn)==-1)
 			{
@@ -299,6 +305,25 @@
 		</div> 
 	</div> 
 	<!--YOUR CONTENT ENDS HERE-->
+
+	<div id="myModal" class="modal fade accountModal">
+		<div class="modal-dialog modal-confirm">
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="icon-box">
+						<i class="material-icons">done</i>
+					</div>				
+					<h4 class="modal-title">Success!</h4>	
+				</div>
+				<div class="modal-body">
+					<p class="text-center">Your account has been successfully created. Kindly log in to continue.</p>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-block" data-dismiss="modal">OK</button>
+				</div>
+			</div>
+		</div>
+	</div>  
 
     <?php
     include "footer.php";
