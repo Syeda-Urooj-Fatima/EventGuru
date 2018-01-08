@@ -16,7 +16,8 @@
 		die("Failed to connect to MySQL: " . mysqli_connect_error());
 	}
 
-	$query='SELECT EventTitle FROM Event WHERE EventTitle LIKE "'.'%'.$_GET['query'].'%"';
+	$eventString = mysqli_escape_string($conn, $_GET['query']);
+	$query='SELECT EventTitle FROM Event WHERE EventTitle LIKE "'.'%'.$eventString.'%"';
 	if($result=mysqli_query($conn,$query))
 	{
 		$rows=array();
