@@ -221,9 +221,9 @@
 								{
 								?>
 									<div class="row">
-				       					 <div class="col-sm-12 form-group">
-				          				<span>Incorrect username/password.</span>
-				       					 </div>
+				       					<div class="col-sm-12 form-group">
+				          					<span style="color:red">Incorrect username/password.</span>
+				       					</div>
 				    				</div>
 									<?php
 									unset($_SESSION["userinfo"]);
