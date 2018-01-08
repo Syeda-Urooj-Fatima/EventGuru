@@ -24,7 +24,7 @@
     opacity: 0.8;
 }
 .btn-grp-custom {
-	float: right;
+	padding-left: 81px;
 }
 @media only screen and (max-width: 768px) {
 	.btn-grp-custom {
@@ -45,7 +45,7 @@ h2 {
 	border-radius: 20px;
 }
 .step{
-
+	display: none;
 }
 .btn-file {
     position: relative;
@@ -70,29 +70,4 @@ h2 {
 	float: right;
 	margin-top: 10px;
 	margin-right: 10px;
-}
-
-.sticky{
-	top: 0;
-	position: fixed;
-	z-index: 10;
-	background-color: white;
-	width: 100%;
-}
-
-.stickyBrother {
-	padding-top: 160px;
-}
-
-@media only screen and (max-width: 425px) {
-    .md-friendly {
-    	display: none;
-    }
-    #pac-input {
-    	width: 250px;
-    	margin-top: 50px;
-    }
-    #map {
-    	height: 300px;
-    }
 }
