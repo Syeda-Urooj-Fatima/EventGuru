@@ -198,7 +198,7 @@
 				        	<label for="log-username">User Name</label>
 				        	<div class="input-group">
 							    <span class="input-group-addon"><i class="fa fa-user"></i></span>
-							    <input class="form-control form-control-sm" id="log-username" name="log-username" placeholder="UserName" type="text" required>
+							    <input class="form-control form-control-sm" id="log-username" name="log-username" placeholder="UserName" type="text" pattern="[a-zA-Z0-9-_]*" required>
 							</div>
 					    </div>
 					</div>
@@ -208,7 +208,7 @@
 					    	<label for="log-password">Password</label>
 					    	<div class="input-group">
 							    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-							    <input class="form-control form-control-sm" id="log-password" name="log-password" placeholder="Password" type="password" required>
+							    <input class="form-control form-control-sm" id="log-password" name="log-password" placeholder="Password" type="password" pattern="[a-zA-Z0-9!@#$%^&*]*" required>
 							</div>
 					    </div>
 					</div>
@@ -245,12 +245,12 @@
 					<div class="row">
 				        <div class="col-sm-12 col-md-6 form-group">
 				        	<label for="sign-firstname">First Name</label>
-				            <input class="form-control form-control-sm" id="sign-firstname" name="sign-firstname" placeholder="First Name" type="text" required>
+				            <input class="form-control form-control-sm" id="sign-firstname" name="sign-firstname" placeholder="First Name" type="text" pattern="[a-zA-Z ']*" maxlength="30" required>
 					    </div>
 
 					    <div class="col-sm-12 col-md-6 form-group">
 					    	<label for="sign-lastname">Last Name</label>
-				            <input class="form-control form-control-sm" id="sign-lastname" name="sign-lastname" placeholder="Last Name" type="text" required>
+				            <input class="form-control form-control-sm" id="sign-lastname" name="sign-lastname" placeholder="Last Name" type="text" pattern="[a-zA-Z ']*" maxlength="30" required>
 					    </div>
 					</div>
 
@@ -259,7 +259,7 @@
 				        	<label for="sign-username">User Name</label>
 				        	<div class="input-group">
 							    <span class="input-group-addon"><i class="fa fa-user"></i></span>
-							    <input class="form-control form-control-sm" id="sign-username" name="sign-username" placeholder="UserName" type="text" required oninput="username_check(this.value)">&nbsp;<br/>
+							    <input class="form-control form-control-sm" id="sign-username" name="sign-username" placeholder="UserName (Letters, digits, hyphens, underscores allowed)" type="text" pattern="[a-zA-Z0-9-_]*" maxlength="30" required oninput="username_check(this.value)">&nbsp;<br/>
 							    <span id="message"></span><br/>
 							</div>
 						</div>
@@ -288,7 +288,7 @@
 					    	<label for="sign-password">Password</label>
 					    	<div class="input-group">
 							    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-							    <input class="form-control form-control-sm" id="sign-password" name="sign-password" placeholder="Password" type="password" oninput="strength_check(this.value)" required>&nbsp;&nbsp;
+							    <input class="form-control form-control-sm" id="sign-password" name="sign-password" placeholder="Password (Letters, digits, !@#$%^&* allowed)" type="password" pattern="[a-zA-Z0-9!@#$%^&*]*" maxlength="30" oninput="strength_check(this.value)" required>&nbsp;&nbsp;
 							    <span id="strengthShow"></span>
 							</div>
 					    </div>
