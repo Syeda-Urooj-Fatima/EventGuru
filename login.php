@@ -1,4 +1,4 @@
-
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <html>
@@ -21,42 +21,45 @@
 
     <!-- <link rel="stylesheet" type="text/css" href="plugins/rateit.js-master/scripts/rateit.css"/>
 	<script src="plugins/rateit.js-master/scripts/jquery.rateit.min.js"></script>	 -->
+	<script  type="text/javascript" src="plugins/typeahead.bundle.js"></script>
     <link rel="icon" href="images/icon.png">
 
     <link rel="stylesheet" type="text/css" href="css/login.css"/>
 
-    <script>
-    	$("#search").keypress(function(event) { /*When enter button is clicked within the search box*/
-		    if (event.keyCode === 13) {
-		        $("#search-btn").click();
-		    }
-		});
+    <?php
+		if(isset($_POST["signupSubmit"]))
+		{
+			$servername='localhost';
+			$username='admin1';
+			$password='admin1';
+			$database='event_gru';
+			$conn= mysqli_connect($servername,$username,$password,$database);
+			if (!$conn)
+			{
+				die("Failed to connect to MySQL: " . mysqli_connect_error());
+			}
 
-		$(document).ready(function(){
-			$("#search-btn").click(function(){
-				alert("Search button clicked");
-			})
-		});
-
-	    $(window).scroll(function() {
-		    $(".slideanim").each(function(){
-		    	var pos = $(this).offset().top;
-			    var winTop = $(window).scrollTop();
-			    if (pos < winTop + 500) {
-			      $(this).addClass("slide");
-			    }
-		  	});
-		});
-
-		function locationMap() {
-		var myCenter = new google.maps.LatLng(33.6423643,72.9831311);
-		var mapProp = {center:myCenter, zoom:17, scrollwheel:false, mapTypeId:google.maps.MapTypeId.ROADMAP};
-		var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
-		var marker = new google.maps.Marker({position:myCenter});
-		marker.setMap(map);
+			$firstName = mysqli_escape_string($conn, $_POST['sign-firstname']);
+			$lastName = mysqli_escape_string($conn, $_POST['sign-lastname']);
+			$userName = mysqli_escape_string($conn, $_POST['sign-username']);
+			$gender = mysqli_escape_string($conn, $_POST['sign-gender']);
+			$email = mysqli_escape_string($conn, $_POST['sign-email']);
+			$password = password_hash($_POST['sign-password'], PASSWORD_DEFAULT);
+			$query="INSERT INTO Accounts VALUES ('$userName','$password','$firstName','$lastName','$gender','$email',0)";
+			mysqli_query($conn,$query);
+			if(mysqli_affected_rows($conn)>0)
+			{
+				echo "<script> console.log('Haha'); </script>";
+			}
+			else if(mysqli_affected_rows($conn)==-1)
+			{
+				echo "<script> alert('Error in creating account');</script>";
+			}
 		}
-
-		function strength_check(password)
+	?>
+	
+    <script>
+	    function strength_check(password)
 		{
 			var count=0;
 			var pattern1=new RegExp("[a-z]");
@@ -134,14 +137,49 @@
 			document.getElementById("strengthShow").innerHTML=strength;
 		}
 
+		function username_check(username){
+	    	var message="";
+			if(username.length>0)
+    		{
+    			$.ajax({
+    				type: "POST",
+    				url: "searchAccounts.php", 
+    				data: {name: username},
+    				success: function(data){
+    					if(data=="Yes"){
+    						$("#sign-username").addClass("success");
+    						$("#message").css('color', 'red');
+    						message="Username already exists";
+    						document.getElementById("message").innerHTML=message;
+    						$("#signupSubmit").prop("disabled",true);
+    						console.log("PRESENT");
+    					}
 
+    					else if(data=="No"){
+    						$("#sign-username").removeClass("success");
+    						message="";
+    						document.getElementById("message").innerHTML=message;
+    						$("#signupSubmit").prop("disabled",false);
+    						console.log("ABSENT");
+    					}
+    					//alert(typeof(data));
+    				}
+    			});
+    		}
+
+    		else{
+    			$("#sign-username").removeClass("success");
+    			message="";
+    			document.getElementById("message").innerHTML=message;
+    			$("#signupSubmit").prop("disabled",false);
+    		}
+
+    	}
     
     </script>
 </head>
 <body>
-    <?php
-    include "header.php";
-    ?>
+    <?php include "header.php"; ?>
     <!--INSERT YOUR CONTENT HERE-->
     <div class="container-fluid bg-light">
     	<br/>
@@ -196,7 +234,7 @@
 		    </div>
 	
 			<div class="col-xs-12 col-md-6">
-				<form action="" class="signup" onsubmit="submitform()">
+				<form action="" method="POST" class="signup" onsubmit="submitform()">
 					<h2>Sign Up</h2>
 					<div class="row">
 				        <div class="col-sm-12 col-md-6 form-group">
@@ -215,7 +253,8 @@
 				        	<label for="sign-username">User Name</label>
 				        	<div class="input-group">
 							    <span class="input-group-addon"><i class="fa fa-user"></i></span>
-							    <input class="form-control form-control-sm" id="sign-username" name="sign-username" placeholder="UserName" type="text" required>
+							    <input class="form-control form-control-sm" id="sign-username" name="sign-username" placeholder="UserName" type="text" required oninput="username_check(this.value)">&nbsp;<br/>
+							    <span id="message"></span><br/>
 							</div>
 						</div>
 					</div>
@@ -223,8 +262,8 @@
 					<div class="row">
 					    <div class="col-sm-12 form-group">
 					    	Gender&nbsp;&nbsp;
-					    	<label class="radio-inline"><input type="radio" name="sign-gender" required>Male</label>
-							<label class="radio-inline"><input type="radio" name="sign-gender">Female</label>
+					    	<label class="radio-inline"><input type="radio" name="sign-gender" value="Male" required>Male</label>
+							<label class="radio-inline"><input type="radio" name="sign-gender" value="Female">Female</label>
 					    </div>
 					</div>
 
@@ -251,7 +290,7 @@
 
 					<div class="row">
 				        <div class="col-sm-12 form-group">
-				          	<button class="btn btn-default btn-sm pull-right" type="submit">Sign up</button>
+				          	<button class="btn btn-default btn-sm pull-right" type="submit" id="signupSubmit" name="signupSubmit">Sign up</button>
 				        </div>
 				    </div>
 			    </form>

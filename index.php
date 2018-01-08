@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <html>
 <head>
 <meta charset="utf-8">
@@ -18,8 +19,9 @@
 
 		<!-- <link rel="stylesheet" type="text/css" href="plugins/rateit.js-master/scripts/rateit.css" />
 		<script src="plugins/rateit.js-master/scripts/jquery.rateit.min.js"></script> -->
+		<script  type="text/javascript" src="plugins/typeahead.bundle.js"></script>
 		<link href="css/carousel.css" rel="stylesheet" />
-		<script src="js/head_foot.js"></script>
+		<!--<script src="js/head_foot.js"></script>-->
 	
 </head>
 <body>

@@ -20,14 +20,13 @@
 
         <link rel="stylesheet" type="text/css" href="plugins/rateit.js-master/scripts/rateit.css" />
         <script src="plugins/rateit.js-master/scripts/jquery.rateit.min.js"></script>
+        <script  type="text/javascript" src="plugins/typeahead.bundle.js"></script>
         <!-- <link href="head_foot.css" rel="stylesheet">
         <script src="head_foot.js"></script> -->
-        <script src="head_foot.js"></script>
-        <link href="head_foot.css" rel="stylesheet" />
 
         <style>
-            ul h4,
-            li {
+            #universities ul h4,
+            #universities li {
                 list-style-type: none;
                 font-family: "Cambria";
             }
@@ -39,7 +38,7 @@
         include "header.php"
         ?>
         <hr>
-        <div class="container">
+        <div class="container" id="universities">
             <div class="row">
                 <div class="col-xs-5 col-sm-3">
                     <ul>
