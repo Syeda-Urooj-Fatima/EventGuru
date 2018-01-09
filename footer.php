@@ -138,8 +138,9 @@
 				    <a href="Statistics.php">
 				    	<button type= "submit" onclick="" class="btn btn-danger">Website stats</button>
 				    </a>
+				    &nbsp;&nbsp;&nbsp;
 				    <a href="MeetTeam.php">
-				    <button type= "button" onclick="" name="meetTeam" id="meetTeam" class="btn btn-danger">Meet the team</button>
+				    	<button type= "button" onclick="" name="meetTeam" id="meetTeam" class="btn btn-danger">Meet the team</button>
 					</a>
 			    </div>
 			</div>
