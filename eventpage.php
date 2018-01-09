@@ -119,18 +119,16 @@
 								{
 
 									$result=mysqli_query($conn,"SELECT SocietyName FROM society INNER JOIN event ON society.Societyid=event.Societyid WHERE Eventid = '$eventId'");
-									if ($result->num_rows > 0) 
-									{
-									    // output data of each row
+										$row = ($result->fetch_assoc());
 
-									    while($row = $result->fetch_assoc()) 
-									    {
-									        echo $row["SocietyName"]. "<br>";
-										}
-									}
-								
-								}
+									$result=mysqli_query($conn,"SELECT AVG(Rating) as Rate FROM rate INNER JOIN event ON rate.SocietyId=event.SocietyId where EventID = '$eventId'");
+									$row1 = ($result->fetch_assoc());
+									$sum = $row1['Rate'];
+									        echo $row["SocietyName"];
+									        echo "      Rated : ".$sum;	
+								}							
 						?>
+												<span class="fa fa-star checked" id="ratestar" style="font-size:28px"  ></span>
 					</p>
 					<p>
 						<i class="fa fa-money"  style="font-size:28px"></i>
