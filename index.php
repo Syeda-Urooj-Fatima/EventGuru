@@ -189,7 +189,7 @@ include "header.php";
 			<div class="row">
 				<div class="col-xs-12 col-sm-6 col-lg-4">
 					<div class="category">
-						<a href="test.php">
+						<a href="test.php?cat=5">
 							<img class="img-circle center-block" src="images/concert.svg" alt="Generic placeholder image" width="120" height="120">
 						</a>
 						<h4>Concert</h4>
@@ -198,7 +198,7 @@ include "header.php";
 
 				<div class="col-xs-12 col-sm-6 col-lg-4">
 					<div class="category">
-						<a href="test.php">
+						<a href="test.php?cat=2">
 							<img class="img-circle center-block" src="images/sports.png" alt="Generic placeholder image" width="120" height="120">
 						</a>
 						<h4>Sports</h4>
@@ -207,7 +207,7 @@ include "header.php";
 				<!-- /.col-lg-4 -->
 				<div class="col-xs-12 col-sm-6 col-lg-4">
 					<div class="category">
-						<a href="test.php">
+						<a href="test.php?cat=4">
 							<img class="img-circle center-block" src="images/egaming.png" alt="Generic placeholder image" width="120" height="120">
 						</a>
 						<h4>EGaming</h4>
@@ -216,7 +216,7 @@ include "header.php";
 
 				<div class="col-xs-12 col-sm-6 col-lg-4">
 					<div class="category">
-						<a href="test.php">
+						<a href="test.php?cat=3">
 							<img class="img-circle center-block" src="images/seminar.png" alt="Generic placeholder image" width="120" height="120">
 						</a>
 						<h4>Seminar</h4>
