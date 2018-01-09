@@ -21,6 +21,8 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>	
 
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+	<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
     <!-- <link rel="stylesheet" type="text/css" href="plugins/rateit.js-master/scripts/rateit.css"/>
 	<script src="plugins/rateit.js-master/scripts/jquery.rateit.min.js"></script>	 -->
@@ -52,7 +54,11 @@
 			mysqli_query($conn,$query);
 			if(mysqli_affected_rows($conn)>0)
 			{
-				echo "<script> console.log('Haha'); </script>";
+				echo "<script type='text/javascript'>
+						$(document).ready(function(){
+							$('#myModal').modal('show');
+						});
+						</script>";
 			}
 			else if(mysqli_affected_rows($conn)==-1)
 			{
@@ -211,7 +217,7 @@ function signOut() {
 				        	<label for="log-username">User Name</label>
 				        	<div class="input-group">
 							    <span class="input-group-addon"><i class="fa fa-user"></i></span>
-							    <input class="form-control form-control-sm" id="log-username" name="log-username" placeholder="UserName" type="text" required>
+							    <input class="form-control form-control-sm" id="log-username" name="log-username" placeholder="UserName" type="text" pattern="[a-zA-Z0-9-_]*" required>
 							</div>
 					    </div>
 					</div>
@@ -221,7 +227,7 @@ function signOut() {
 					    	<label for="log-password">Password</label>
 					    	<div class="input-group">
 							    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-							    <input class="form-control form-control-sm" id="log-password" name="log-password" placeholder="Password" type="password" required>
+							    <input class="form-control form-control-sm" id="log-password" name="log-password" placeholder="Password" type="password" pattern="[a-zA-Z0-9!@#$%^&*]*" required>
 							</div>
 					    </div>
 					</div>
@@ -240,9 +246,9 @@ function signOut() {
 								{
 								?>
 									<div class="row">
-				       					 <div class="col-sm-12 form-group">
-				          				<span>Incorrect username/password.</span>
-				       					 </div>
+				       					<div class="col-sm-12 form-group">
+				          					<span style="color:red">Incorrect username/password.</span>
+				       					</div>
 				    				</div>
 									<?php
 									unset($_SESSION["userinfo"]);
@@ -262,12 +268,12 @@ function signOut() {
 					<div class="row">
 				        <div class="col-sm-12 col-md-6 form-group">
 				        	<label for="sign-firstname">First Name</label>
-				            <input class="form-control form-control-sm" id="sign-firstname" name="sign-firstname" placeholder="First Name" type="text" required>
+				            <input class="form-control form-control-sm" id="sign-firstname" name="sign-firstname" placeholder="First Name" type="text" pattern="[a-zA-Z ']*" maxlength="30" required>
 					    </div>
 
 					    <div class="col-sm-12 col-md-6 form-group">
 					    	<label for="sign-lastname">Last Name</label>
-				            <input class="form-control form-control-sm" id="sign-lastname" name="sign-lastname" placeholder="Last Name" type="text" required>
+				            <input class="form-control form-control-sm" id="sign-lastname" name="sign-lastname" placeholder="Last Name" type="text" pattern="[a-zA-Z ']*" maxlength="30" required>
 					    </div>
 					</div>
 
@@ -276,7 +282,7 @@ function signOut() {
 				        	<label for="sign-username">User Name</label>
 				        	<div class="input-group">
 							    <span class="input-group-addon"><i class="fa fa-user"></i></span>
-							    <input class="form-control form-control-sm" id="sign-username" name="sign-username" placeholder="UserName" type="text" required oninput="username_check(this.value)">&nbsp;<br/>
+							    <input class="form-control form-control-sm" id="sign-username" name="sign-username" placeholder="UserName (Letters, digits, hyphens, underscores allowed)" type="text" pattern="[a-zA-Z0-9-_]*" maxlength="30" required oninput="username_check(this.value)">&nbsp;<br/>
 							    <span id="message"></span><br/>
 							</div>
 						</div>
@@ -305,7 +311,7 @@ function signOut() {
 					    	<label for="sign-password">Password</label>
 					    	<div class="input-group">
 							    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-							    <input class="form-control form-control-sm" id="sign-password" name="sign-password" placeholder="Password" type="password" oninput="strength_check(this.value)" required>&nbsp;&nbsp;
+							    <input class="form-control form-control-sm" id="sign-password" name="sign-password" placeholder="Password (Letters, digits, !@#$%^&* allowed)" type="password" pattern="[a-zA-Z0-9!@#$%^&*]*" maxlength="30" oninput="strength_check(this.value)" required>&nbsp;&nbsp;
 							    <span id="strengthShow"></span>
 							</div>
 					    </div>
@@ -322,6 +328,25 @@ function signOut() {
 		</div> 
 	</div> 
 	<!--YOUR CONTENT ENDS HERE-->
+
+	<div id="myModal" class="modal fade accountModal">
+		<div class="modal-dialog modal-confirm">
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="icon-box">
+						<i class="material-icons">done</i>
+					</div>				
+					<h4 class="modal-title">Success!</h4>	
+				</div>
+				<div class="modal-body">
+					<p class="text-center">Your account has been successfully created. Kindly log in to continue.</p>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-block" data-dismiss="modal">OK</button>
+				</div>
+			</div>
+		</div>
+	</div>  
 
     <?php
     include "footer.php";
