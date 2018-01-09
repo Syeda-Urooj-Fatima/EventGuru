@@ -3,37 +3,34 @@
 <html>
 
 	<head>
+		<title>Event Guru - Event Page</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
-		<link rel="stylesheet" href="css/styles.css">
-
-
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="bootstrap4/css/bootstrap.min.css" />
+		<script src="jquery/jquery-3.2.1.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+		<script src="bootstrap4/js/bootstrap.min.js"></script>
 
 		<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
 		<script type="text/javascript" src="bower_components/moment/min/moment.min.js"></script>
 		<script type="text/javascript" src="bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
 		<link rel="stylesheet" href="bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css"
 		/>
-		<!-- <link rel="stylesheet" href="plugins/rateit.js-master/scripts/rateit.css">
-		<script src="plugins/rateit.js-master/scripts/jquery.rateit.min.js"></script> -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+
+		<link rel="stylesheet" href="plugins/rateit.js-master/scripts/rateit.css">
+		<script src="plugins/rateit.js-master/scripts/jquery.rateit.min.js"></script> 
+
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-		<!-- <link rel="stylesheet" href="css/header.css" />
-		<link rel="stylesheet" href="css/footer.css">
-        <script src="head_foot.js"></script> -->
+		<link rel="stylesheet" href="css/styles.css">
         
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
 		<script  type="text/javascript" src="plugins/typeahead.bundle.js"></script>
 		<script type="text/javascript">
 			function googleTranslateElementInit() {
 				new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
 			}
         </script>
+        <link rel="icon" href="images/icon.png">
 
 	</head>
 
@@ -50,9 +47,11 @@
 					<br>
 					<h1>
 						<?php
+								$eventId = $_GET["ID"];
+
 								$servername = "localhost";
-								$username = "sql";
-								$password = "sql";
+								$username = "admin1";
+								$password = "admin1";
 								$database = "ravens_eventgru";
 
 								// Create connection
@@ -63,7 +62,7 @@
 								}
 								else
 								{
-									$result=mysqli_query($conn,"SELECT EventTitle FROM event WHERE Eventid = 1");
+									$result=mysqli_query($conn,"SELECT EventTitle FROM event WHERE Eventid = '$eventId'");
 									if ($result->num_rows > 0) 
 									{
 									    // output data of each row
@@ -75,7 +74,7 @@
 									}
 								}
 						?>
-					</h1>
+					</h1><input id="event-id" value="<?php echo $eventId; ?>" hidden>
 					<hr>
 					<i class="fa fa-bank" style="font-size:28px"></i>
 						<?php
@@ -86,7 +85,7 @@
 								else
 								{
 
-									$result=mysqli_query($conn,"SELECT UniversityName FROM university INNER JOIN society ON university.UniversityID =  society.UniversityID INNER JOIN event ON society.Societyid=event.Societyid WHERE Eventid = 1");
+									$result=mysqli_query($conn,"SELECT UniversityName FROM university INNER JOIN society ON university.UniversityID =  society.UniversityID INNER JOIN event ON society.Societyid=event.Societyid WHERE Eventid = '$eventId'");
 									if ($result->num_rows > 0) 
 									{
 									    // output data of each row
@@ -109,7 +108,7 @@
 								else
 								{
 
-									$result=mysqli_query($conn,"SELECT SocietyName FROM society INNER JOIN event ON society.Societyid=event.Societyid WHERE Eventid = 1");
+									$result=mysqli_query($conn,"SELECT SocietyName FROM society INNER JOIN event ON society.Societyid=event.Societyid WHERE Eventid = '$eventId'");
 									if ($result->num_rows > 0) 
 									{
 									    // output data of each row
@@ -123,6 +122,38 @@
 								}
 						?>
 					</p>
+					<p>
+						<i class="fa fa-money"  style="font-size:28px"></i>
+						<?php
+								if (!$conn) 
+								{
+									die("Failed to connect to mysql" . mysqli_connect_error());
+								}
+								else
+								{
+
+									$result=mysqli_query($conn,"SELECT TicketPrice, ContactPhone,ContactEmail FROM society INNER JOIN event ON society.Societyid=event.Societyid WHERE Eventid = '$eventId'");
+									if ($result->num_rows > 0) 
+									{
+									    // output data of each row
+
+									    while($row = $result->fetch_assoc()) 
+									    {
+									        echo "Ticket Price: ". $row["TicketPrice"]. "<br>";
+										}
+									}
+								
+								}
+						?>
+						<i class="fa fa-fax"  style="font-size:28px"></i>
+						<?php
+
+									        echo "Contact Number: " .$row["ContactPhone"]. "<br>";
+									        ?>
+									        <i class="fa fa-fax" style="font-size:28px" ></i>
+									       <?php 
+									        echo "Contact Email: " .$row["ContactEmail"]. "<br>";?>
+					</p>
 					<hr>
 					<img class="img-fluid rounded" src="
 					<?php
@@ -133,7 +164,7 @@
 								else
 								{
 
-									$result=mysqli_query($conn,"SELECT PosterPath FROM event WHERE Eventid = 1");
+									$result=mysqli_query($conn,"SELECT PosterPath FROM event WHERE Eventid = '$eventId'");
 									if ($result->num_rows > 0) 
 									{
 									    // output data of each row
@@ -149,7 +180,7 @@
 						" alt="dramafest cover">
 					<!-- so that image scales with the parent element -->
 					<hr>
-					<iframe width="643" height="315"
+					<iframe width="100%" height="250px">
 						src="
 						<?php
 								if (!$conn) 
@@ -159,7 +190,7 @@
 								else
 								{
 
-									$result=mysqli_query($conn,"SELECT VideoLink FROM event WHERE Eventid = 1");
+									$result=mysqli_query($conn,"SELECT VideoLink FROM event WHERE Eventid = '$eventId'");
 									if ($result->num_rows > 0) 
 									{
 									    // output data of each row
@@ -183,7 +214,7 @@
 								else
 								{
 
-									$result=mysqli_query($conn,"SELECT Description FROM event WHERE Eventid = 1");
+									$result=mysqli_query($conn,"SELECT Description FROM event WHERE Eventid = '$eventId'");
 									if ($result->num_rows > 0) 
 									{
 									    // output data of each row
@@ -235,7 +266,7 @@
 								}
 								else
 								{
-									$result=mysqli_query($conn,"SELECT EventDate FROM event WHERE Eventid = 1");
+									$result=mysqli_query($conn,"SELECT EventDate FROM event WHERE Eventid = '$eventId'");
 									if ($result->num_rows > 0) 
 									{
 									    // output data of each row
@@ -282,7 +313,7 @@
 								}
 								else
 								{
-									$result=mysqli_query($conn,"SELECT EventTime FROM event WHERE Eventid = 1");
+									$result=mysqli_query($conn,"SELECT EventTime FROM event WHERE Eventid = '$eventId'");
 									if ($result->num_rows > 0) 
 									{
 									    // output data of each row
@@ -307,7 +338,7 @@
 					<script type="text/javascript">
 						function submit()
 						{
-							var data = {comment: $("#comment-textarea").val()};
+							var data = {comment: $("#comment-textarea").val(), eventId: $("#event-id").val()};
 							$.post("comments.php",data);
 							$('#comment-textarea').val('');
 						}
@@ -325,7 +356,7 @@
 											else
 											{
 													$commentno = $result->num_rows;
-													$result=mysqli_query($conn,"SELECT username,Comments FROM feedback WHERE Eventid = 1");
+													$result=mysqli_query($conn,"SELECT username,Comments FROM feedback WHERE Eventid ='$eventId'");
 													for ($x = 0; $x <= $commentno; $x++) 
 													{
 														    // output data of each row
@@ -365,7 +396,7 @@
 											else
 											{
 													$commentno = $result->num_rows;
-													$result=mysqli_query($conn,"SELECT VenuLat FROM event WHERE Eventid = 1");
+													$result=mysqli_query($conn,"SELECT VenuLat FROM event WHERE Eventid = '$eventId'");
 				if ($result->num_rows > 0) 
 				{
 				    // output data of each row
@@ -419,7 +450,7 @@
 											else
 											{
 													$commentno = $result->num_rows;
-													$result=mysqli_query($conn,"SELECT VenuLat FROM event WHERE Eventid = 1");
+													$result=mysqli_query($conn,"SELECT VenuLat FROM event WHERE Eventid = '$eventId'");
 				if ($result->num_rows > 0) 
 				{
 				    // output data of each row
@@ -439,7 +470,7 @@
 											else
 											{
 													$commentno = $result->num_rows;
-													$result=mysqli_query($conn,"SELECT VenuLng FROM event WHERE Eventid = 1");
+													$result=mysqli_query($conn,"SELECT VenuLng FROM event WHERE Eventid = '$eventId'");
 				if ($result->num_rows > 0) 
 				{
 				    // output data of each row

@@ -1,13 +1,12 @@
-<html>
-<body>
+
 
 <?php
-
+	session_start();
 	//echo "string";
-
+	$user=$_SESSION["username"];
 		$servername = "localhost";
-		$username = "sql";
-		$password = "sql";
+		$username = "admin1";
+		$password = "admin1";
 		$database = "ravens_eventgru";
 		$conn = mysqli_connect($servername, $username, $password, $database);
 		if (!$conn) {
@@ -16,12 +15,12 @@
 	else{	
 		$ccomment = $_POST["comment"];
 				#$comment = "my commant";
-				$eventid = 1;
+				$eventid = $_POST["eventId"];
 		//echo "hello";
 				
-				$user = "raven";
+				//$user = "raven";
 				#$sql = "INSERT INTO feedback (Comments,username,Eventid) VALUES ('$comment','$user', '$Eventid')";
-				$sql ="INSERT INTO feedback (username,eventid,Comments) VALUES ('$user',$eventid,'$ccomment')";
+				$sql ="INSERT INTO feedback (Username,EventID,Comments) VALUES ('$user',$eventid,'$ccomment')";
 				if (mysqli_query($conn, $sql)) {
 				    echo "New record created successfully";
 				} else {
@@ -32,5 +31,3 @@
 ?>
 
 
-</body>
-</html>

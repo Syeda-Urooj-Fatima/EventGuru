@@ -2,21 +2,19 @@
 <html lang="en">
 <html>
 <head>
-	
+	<title>Event Guru - Event Search</title>
     <meta charset="utf-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1">	
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="bootstrap4/css/bootstrap.min.css" />
+	<script src="jquery/jquery-3.2.1.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+	<script src="bootstrap4/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script  type="text/javascript" src="plugins/typeahead.bundle.js"></script>
+
 	<link rel="stylesheet" type="text/css" href="css/test1.css">
-	<title>Event Search Page</title>
-	<script src="js/header.js"></script>
-	<script src="js/footer.js"></script>
- 	<link rel="stylesheet" type="text/css" href="css/header.css">
-	<link rel="stylesheet" type="text/css" href="css/footer.css">
- 	<link rel="stylesheet" type="text/css" href="plugins/rateit.js-master/scripts/rateit.css"/>
+ 	<link rel="icon" href="images/icon.png">
 
 	<?php
 		$con = mysqli_connect("localhost","admin1","admin1","ravens_eventgru");

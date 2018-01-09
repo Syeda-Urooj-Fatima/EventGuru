@@ -24,8 +24,8 @@
 	$lng = round($lng,5);
 
 	$servername = "localhost";
-	$username = "root";
-	$password = "safe";
+	$username = "admin1";
+	$password = "admin1";
 	$dbname = "ravens_eventgru";
 
 	// Create connection
@@ -73,7 +73,7 @@
 	    echo "success";
 	}
 
-	$sql1 = "select SocietyId from Admin where username='haseeb'";
+	$sql1 = "select SocietyId from Admin where username='$admin'";
 	$result = mysqli_query($conn, $sql1);
 	if (mysqli_num_rows($result) > 0) {
 	    while($row = mysqli_fetch_assoc($result)) {
