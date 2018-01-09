@@ -205,7 +205,17 @@
 							<h4>Ratings</h4>
 						</div>
 						<div class="rating rounded">
-							<span class="rateit"> </span>
+							<span class="rateit" id="rateitt" onclick="rrr()" data-rateit-step="1" data-rateit-resetable='false'> </span>
+							<script type="text/javascript">
+							    $("#rateitt").click(function () {
+
+							       // var x = $(this).rateit('value');
+							       // alert(x);
+							        //$.post("rate.php",x);
+							        //window.locaton="rate.php";
+							    });
+							</script>
+							
 						</div>
 						<br>
 					</div>
@@ -255,7 +265,7 @@
 							<h1>
 								<span class="day">
 									<?php
-								 echo date_format($date, 'JS');
+								 echo date_format($date, 'jS');
 								?>
 								</span>
 							</h1>
@@ -327,52 +337,49 @@
 				// Map options
 				var options = {
 					zoom: 16,
-					center: { lat: 
-						<?php
+					center: { lat: 	<?php
 											if (!$conn) 
 											{
 												die("Failed to connect to mysql" . mysqli_connect_error());
 											}
 											else
 											{
+													$commentno = $result->num_rows;
+													$result=mysqli_query($conn,"SELECT VenuLat FROM event WHERE Eventid = 1");
+				if ($result->num_rows > 0) 
+				{
+				    // output data of each row
 
-												$result=mysqli_query($conn,"SELECT VenuLat FROM event WHERE Eventid = 1");
-												if ($result->num_rows > 0) 
-												{
-												    // output data of each row
-
-												    while($row = $result->fetch_row()) 
-												    {
-												        echo $row[0];
-													}
-												}
-											
+				    while($row = $result->fetch_assoc()) 
+				    {
+				        echo $row["VenuLat"];
+					}
+				}
+													
 											}
-									?>
+					?>
 
-						, lng: 
-						<?php
+						, lng:<?php
 											if (!$conn) 
 											{
 												die("Failed to connect to mysql" . mysqli_connect_error());
 											}
 											else
 											{
+													$commentno = $result->num_rows;
+													$result=mysqli_query($conn,"SELECT VenuLng FROM event WHERE Eventid = 1");
+				if ($result->num_rows > 0) 
+				{
+				    // output data of each row
 
-												$result=mysqli_query($conn,"SELECT VenuLng FROM event WHERE Eventid = 1");
-												if ($result->num_rows > 0) 
-												{
-												    // output data of each row
-
-												    while($row = $result->fetch_row()) 
-												    {
-												        echo $row[1];
-													}
-												}
-											
+				    while($row = $result->fetch_assoc()) 
+				    {
+				        echo $row["VenuLng"];
+					}
+				}
+													
 											}
-									?>
-
+					?>
 						 }
 				}
 
@@ -384,7 +391,47 @@
 
 				// Add marker
 				var marker = new google.maps.Marker({
-					position: { lat: 33.6502423, lng: 73.0791017 },
+					position: { lat: <?php
+											if (!$conn) 
+											{
+												die("Failed to connect to mysql" . mysqli_connect_error());
+											}
+											else
+											{
+													$commentno = $result->num_rows;
+													$result=mysqli_query($conn,"SELECT VenuLat FROM event WHERE Eventid = 1");
+				if ($result->num_rows > 0) 
+				{
+				    // output data of each row
+
+				    while($row = $result->fetch_assoc()) 
+				    {
+				        echo $row["VenuLat"];
+					}
+				}
+													
+											}
+					?>, lng: <?php
+											if (!$conn) 
+											{
+												die("Failed to connect to mysql" . mysqli_connect_error());
+											}
+											else
+											{
+													$commentno = $result->num_rows;
+													$result=mysqli_query($conn,"SELECT VenuLng FROM event WHERE Eventid = 1");
+				if ($result->num_rows > 0) 
+				{
+				    // output data of each row
+
+				    while($row = $result->fetch_assoc()) 
+				    {
+				        echo $row["VenuLng"];
+					}
+				}
+													
+											}
+					?>},
 					map: map,
 				});
 
