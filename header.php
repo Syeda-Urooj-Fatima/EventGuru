@@ -52,8 +52,10 @@
 			    });
 			});  
 		</script>
+	
+		
 		<style>
-			#logout,#create_event{
+			#logout,#create_event,#google_signout{
 				display:none;
 			}
 			a {
@@ -80,6 +82,17 @@
 			}
 		}
 		}
+		// if(isset($_SESSION["google"]))
+		// {
+		// 	if($_SESSION["google"]==true)
+		// 	{
+		// 		echo "<style>#google_signout{display:inline;}</style>";
+		// 	}
+		// 	if($_SESSION["google"]==false)
+		// 	{
+		// 		echo "<style>#google_signout{display:none;}</style>";
+		// 	}
+		// }
 	?>
 		<nav id="nav-top" class="navbar navbar-expand-lg">
 			<a class="navbar navbar-brand logo" href="index.php">
@@ -130,6 +143,7 @@
 							<i class="fa fa-calendar"></i>Create Event</button>
 					</a>
 					</li>
+					
 				</ul>
 			</div>
 		</nav>
