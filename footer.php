@@ -134,9 +134,9 @@
 				    <h2>About</h2>
 				    <p>We at EventGuru promise to provide you with timely updates regarding the events around you</p>
 				    <br/>
-				    <h2>Rate Us</h2>
-				    <span id="rate" class="rateit">
-	  				</span>
+				    <h2>More</h2>
+				    <button type= "button" onclick="" name="siteStats" id="siteStats" class="btn btn-danger">Website stats</button>&nbsp;&nbsp;&nbsp;&nbsp;
+				    <button type= "button" onclick="" name="meetTeam" id="meetTeam" class="btn btn-danger">Meet the team</button>
 			    </div>
 			</div>
 		</div>
