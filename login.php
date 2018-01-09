@@ -3,7 +3,10 @@
 <html lang="en">
 <html>
 <head>
-    <meta charset="utf-8"> 
+    <meta charset="utf-8">
+	<!-- google login -->
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+	<meta name="google-signin-client_id" content="698968730284-cvp920b6ipmgukv1o2k1nm3hmv0053gl.apps.googleusercontent.com"> 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Login</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
@@ -177,6 +180,22 @@
     	}
     
     </script>
+	<script>
+	function onSignIn(googleUser) {
+  var profile = googleUser.getBasicProfile();
+  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+  console.log('Name: ' + profile.getName());
+  console.log('Image URL: ' + profile.getImageUrl());
+  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+
+}
+function signOut() {
+			var auth2 = gapi.auth2.getAuthInstance();
+			auth2.signOut().then(function () {
+			console.log('User signed out.');
+					});	
+				}
+	</script>
 </head>
 <body>
     <?php include "header.php"; ?>
@@ -230,7 +249,11 @@
 								}
 							}
 					?>
+					<div class="g-signin2" data-onsuccess="onSignIn"></div>
+					<a href="https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=http://localhost/web/EventGuru/logout.php" onclick="signOut();"><button class="btn btn-default btn-sm pull-right">Sign out</button></a>
+					<br>
 			    </form>
+ 
 		    </div>
 	
 			<div class="col-xs-12 col-md-6">
