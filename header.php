@@ -52,10 +52,8 @@
 			    });
 			});  
 		</script>
-	
-		
 		<style>
-			#logout,#create_event,#google_signout{
+			#logout,#create_event{
 				display:none;
 			}
 			a {
@@ -82,17 +80,6 @@
 			}
 		}
 		}
-		// if(isset($_SESSION["google"]))
-		// {
-		// 	if($_SESSION["google"]==true)
-		// 	{
-		// 		echo "<style>#google_signout{display:inline;}</style>";
-		// 	}
-		// 	if($_SESSION["google"]==false)
-		// 	{
-		// 		echo "<style>#google_signout{display:none;}</style>";
-		// 	}
-		// }
 	?>
 		<nav id="nav-top" class="navbar navbar-expand-lg">
 			<a class="navbar navbar-brand logo" href="index.php">
@@ -143,7 +130,6 @@
 							<i class="fa fa-calendar"></i>Create Event</button>
 					</a>
 					</li>
-					
 				</ul>
 			</div>
 		</nav>
@@ -159,37 +145,32 @@
 			<div class="collapse navbar-collapse" id="collapsibleNavbar2">
 				<ul class="navbar-nav">
 					<li class="nav-item">
-						<a href="test.php" class="nav-link">Musical
+						<a href="test.php?cat=Concert" class="nav-link">Concert
 							<i class="fa fa-music"></i>
 						</a>
 					</li>
 					<li class="nav-item">
-						<a href="test.php" class="nav-link">Workshop
-							<i class="fa fa-pencil"></i>
+						<a href="test.php?cat=Sports" class="nav-link">Sports
+							<i class="fa fa-futbol-o"></i>
 						</a>
 					</li>
 					<li class="nav-item">
-						<a href="test.php" class="nav-link">Food
-							<i class="fa fa-cutlery"></i>
-						</a>
-					</li>
-					<li class="nav-item">
-						<a href="test.php" class="nav-link">Education
-							<i class="fa fa-book"></i>
-						</a>
-					</li>
-					<li class="nav-item">
-						<a href="test.php" class="nav-link">Games
+						<a href="test.php?cat=EGaming" class="nav-link">EGaming
 							<i class="fa fa-gamepad"></i>
 						</a>
 					</li>
 					<li class="nav-item">
-						<a href="test.php" class="nav-link">Entertainment
-							<i class="fa fa-film"></i>
+						<a href="test.php?cat=Seminar" class="nav-link">Seminar
+							<i class="fa fa-users"></i>
 						</a>
 					</li>
 					<li class="nav-item">
-						<a href="test.php" class="nav-link">More
+						<a href="test.php?cat=Hackathon" class="nav-link">Hackathon
+							<i class="fa fa-certificate"></i>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="test.php?cat=" class="nav-link">More
 							<i class="fa fa-chevron-circle-right"></i>
 						</a>
 					</li>
