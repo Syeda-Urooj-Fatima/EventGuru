@@ -1,4 +1,5 @@
-<?php session_start(); ?>
+<?php session_start();
+ ?>
 <html>
 <head>
 <meta charset="utf-8">
@@ -115,7 +116,7 @@ include "header.php";
 				<div class="col-xs-12 col-sm-6 col-lg-4">
 					<div class="uni nust">
 
-						<a href="test.php">
+						<a href='test.php?ID=1'>
 							<img class="img-circle center-block img-fluid" src="images/nust.jpeg" alt="Generic placeholder image" width="120" height="120">
 						</a>
 						<h4>NUST</h4>
@@ -124,7 +125,7 @@ include "header.php";
 				<!-- /.col-lg-4 -->
 				<div class="col-xs-12 col-sm-6 col-lg-4">
 					<div class="uni">
-						<a href="test.php">
+						<a href='test.php?ID=3'>
 							<img class="img-circle center-block" src="images/fast.png" alt="Generic placeholder image" width="120" height="120">
 						</a>
 						<h4>FAST</h4>
@@ -133,7 +134,7 @@ include "header.php";
 				<!-- /.col-lg-4 -->
 				<div class="col-xs-12 col-sm-6 col-lg-4">
 					<div class="uni lums">
-						<a href="test.php">
+						<a href='test.php?ID=2'>
 							<img class="img-circle  center-block" src="images/lums.png" alt="Generic placeholder image" width="120" height="120">
 						</a>
 						<h4>LUMS</h4>
@@ -146,7 +147,7 @@ include "header.php";
 				<!-- <div class="row"> -->
 				<div class="col-xs-12 col-sm-6 col-lg-4">
 					<div class="uni giki">
-						<a href="test.php">
+						<a href='test.php?ID=6'>
 							<img class="img-circle  center-block" src="images/giki.png" alt="Generic placeholder image" width="120" height="120">
 						</a>
 						<h4>GIKI</h4>
@@ -155,7 +156,7 @@ include "header.php";
 				<!-- /.col-lg-4 -->
 				<div class="col-xs-12 col-sm-6 col-lg-4">
 					<div class="uni">
-						<a href="test.php">
+						<a href='test.php?ID=7'>
 							<img class="img-circle center-block" src="images/air.gif" alt="Generic placeholder image" width="120" height="120">
 						</a>
 						<h4>Air University</h4>
@@ -191,7 +192,7 @@ include "header.php";
 						<a href="test.php">
 							<img class="img-circle center-block" src="images/concert.svg" alt="Generic placeholder image" width="120" height="120">
 						</a>
-						<h4>Concerts</h4>
+						<h4>Concert</h4>
 					</div>
 				</div>
 
@@ -218,7 +219,7 @@ include "header.php";
 						<a href="test.php">
 							<img class="img-circle center-block" src="images/seminar.png" alt="Generic placeholder image" width="120" height="120">
 						</a>
-						<h4>Seminars</h4>
+						<h4>Seminar</h4>
 					</div>
 				</div>
 				<!-- /.col-lg-4 -->
@@ -227,7 +228,7 @@ include "header.php";
 						<a href="test.php">
 							<img class="img-circle center-block" src="images/hack.png" alt="Generic placeholder image" width="120" height="120">
 						</a>
-						<h4>Hackathons</h4>
+						<h4>Hackathon</h4>
 					</div>
 				</div>
 				<!-- /.col-lg-4 -->
