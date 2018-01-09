@@ -20,5 +20,11 @@ h3{
 
 #map {
     height: 400px;
+}
 
+#footer_bottom{
+    background-color:#e51c19;
+    width:100%;
+    text-align:center;
+    color:white;
 }

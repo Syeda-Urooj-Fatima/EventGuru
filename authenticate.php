@@ -6,47 +6,83 @@
     $user=$_POST["log-username"];
     $pass=$_POST["log-password"];
     // $user=preg_replace('/\s+/', '', $user);
-    // $pass=preg_replace('/\s+/', '', $pass);
-
-    
+    // $pass=preg_replace('/\s+/', '', $pass); 
   }
   $servername='localhost';
   $port='3306';
   $username='root';
-  $password='';
-  $database='signup';
+  $password="";
+  $database='ravens_eventgru';
   $conn= mysqli_connect($servername,$username,$password,$database,$port);
   if (!$conn)
   {
-   die("Failed to connect to MySQL: " . mysqli_connect_error());
-   header("Location:login.php");
+    die("Failed to connect to MySQL: " . mysqli_connect_error());
+    header("Location:login.php");
   }
 
   $user = mysqli_real_escape_string($conn, $user);
   $pass = mysqli_real_escape_string($conn, $pass);
-   $sql='SELECT * FROM Accounts Where UserName="'.$user.'" and Password="'.$pass.'" ';
+<<<<<<< HEAD
+  //UserName="'.$user.'" and Password="'.$pass.'"
+  $sql='SELECT * FROM Accounts Where UserName="'.$user.'" ';
+=======
+  //echo "<script>console.log('YES')</script>";
+  $sql='SELECT * FROM Accounts Where UserName="'.$user.'"';
+>>>>>>> 16d66fae16692a6d568549676c1422fd9d3d64cf
 
   if($result=mysqli_query($conn,$sql))
   {
+    //echo "<script>console.log('YES')</script>";
     if(mysqli_num_rows($result)>0)
     {
-      $_SESSION["username"]=$user;
-      $_SESSION["userinfo"]="correct";
       $row=mysqli_fetch_assoc($result);
+      $pass1=$row["Password"];
       if($row["IsAdmin"]==1)
       {
-        $_SESSION["admin"]=true;
+        //echo "<script>console.log('YES')</script>";
+        if($pass==$pass1)
+        {
+          $_SESSION["username"]=$user;
+          $_SESSION["userinfo"]="correct";
+          $_SESSION["admin"]=true;
+          header("Location:index.php");
+          mysqli_free_result($result);
+          mysqli_close($conn);
+          exit();
+        }
+
+        else
+        {
+          header("Location:test.php");
+          $_SESSION["userinfo"]="wrong";
+        }
       }
-      header("Location:index.php");
-      mysqli_free_result($result);
-      mysqli_close($conn);
-      exit();
+
+      else
+      {
+        if(password_verify($pass, $pass1)) {
+          $_SESSION["username"]=$user;
+          $_SESSION["userinfo"]="correct";
+          header("Location:index.php");
+          mysqli_free_result($result);
+          mysqli_close($conn);
+          exit();
+        }
+
+        else
+        {
+          header("Location:login.php");
+          $_SESSION["userinfo"]="wrong";
+        }
+      }
+      
     }
+
     else
     {
       header("Location:login.php");
       $_SESSION["userinfo"]="wrong";
-  
+
     }
   }
 
