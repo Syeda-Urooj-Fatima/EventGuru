@@ -10,9 +10,9 @@
   }
   $servername='localhost';
   $port='3306';
-  $username='root';
-  $password="";
-  $database='ravens_eventgru';
+  $username='admin1';
+  $password='admin1';
+  $database='event_gru';
   $conn= mysqli_connect($servername,$username,$password,$database,$port);
   if (!$conn)
   {
@@ -22,13 +22,8 @@
 
   $user = mysqli_real_escape_string($conn, $user);
   $pass = mysqli_real_escape_string($conn, $pass);
-<<<<<<< HEAD
-  //UserName="'.$user.'" and Password="'.$pass.'"
-  $sql='SELECT * FROM Accounts Where UserName="'.$user.'" ';
-=======
   //echo "<script>console.log('YES')</script>";
   $sql='SELECT * FROM Accounts Where UserName="'.$user.'"';
->>>>>>> 16d66fae16692a6d568549676c1422fd9d3d64cf
 
   if($result=mysqli_query($conn,$sql))
   {
