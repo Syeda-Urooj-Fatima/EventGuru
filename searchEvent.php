@@ -25,11 +25,10 @@
         include "header.php"; 
     ?>
 	
-<!--  My file starts here -->	
 
 
 	<!--My CONTENT ENDS HERE--> 
-<br/><br/>
+<br/>
 
 <?php
 	include "footer.php";
