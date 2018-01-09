@@ -73,7 +73,7 @@
 	    echo "success";
 	}
 
-	$sql1 = "select SocietyId from Admin where username='haseeb'";
+	$sql1 = "select SocietyId from Admin where username='$admin'";
 	$result = mysqli_query($conn, $sql1);
 	if (mysqli_num_rows($result) > 0) {
 	    while($row = mysqli_fetch_assoc($result)) {
