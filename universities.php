@@ -18,8 +18,10 @@
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
         />
 
-        <link rel="stylesheet" type="text/css" href="plugins/rateit.js-master/scripts/rateit.css" />
+        <link rel="stylesheet" type="text/css" href="plugins/rateit.js-master/scripts/rateit.css"/>
         <script src="plugins/rateit.js-master/scripts/jquery.rateit.min.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <script  type="text/javascript" src="plugins/typeahead.bundle.js"></script>
         <!-- <link href="head_foot.css" rel="stylesheet">
         <script src="head_foot.js"></script> -->

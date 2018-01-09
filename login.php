@@ -24,8 +24,11 @@
 	<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
-    <!-- <link rel="stylesheet" type="text/css" href="plugins/rateit.js-master/scripts/rateit.css"/>
-	<script src="plugins/rateit.js-master/scripts/jquery.rateit.min.js"></script>	 -->
+    <link rel="stylesheet" type="text/css" href="plugins/rateit.js-master/scripts/rateit.css"/>
+	<script src="plugins/rateit.js-master/scripts/jquery.rateit.min.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	
 	<script  type="text/javascript" src="plugins/typeahead.bundle.js"></script>
     <link rel="icon" href="images/icon.png">
 

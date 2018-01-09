@@ -18,8 +18,7 @@
 		<script type="text/javascript" src="bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
 		<link rel="stylesheet" href="bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css"
 		/>
-		<!-- <link rel="stylesheet" href="plugins/rateit.js-master/scripts/rateit.css">
-		<script src="plugins/rateit.js-master/scripts/jquery.rateit.min.js"></script> -->
+		
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
@@ -28,6 +27,10 @@
         <script src="head_foot.js"></script> -->
         
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="plugins/rateit.js-master/scripts/rateit.css"/>
+		<script src="plugins/rateit.js-master/scripts/jquery.rateit.min.js"></script>
+		<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 		<script  type="text/javascript" src="plugins/typeahead.bundle.js"></script>
 		<script type="text/javascript">
 			function googleTranslateElementInit() {
