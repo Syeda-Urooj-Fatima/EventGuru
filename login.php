@@ -35,9 +35,9 @@
 		if(isset($_POST["signupSubmit"]))
 		{
 			$servername='localhost';
-			$username='admin1';
-			$password='admin1';
-			$database='event_gru';
+			$username='root';
+			$password='';
+			$database='ravens_eventgru';
 			$conn= mysqli_connect($servername,$username,$password,$database);
 			if (!$conn)
 			{

@@ -12,9 +12,9 @@
   }
   $servername='localhost';
   $port='3306';
-  $username='admin1';
-  $password='admin1';
-  $database='event_gru';
+  $username='root';
+  $password="";
+  $database='ravens_eventgru';
   $conn= mysqli_connect($servername,$username,$password,$database,$port);
   if (!$conn)
   {
@@ -24,6 +24,7 @@
 
   $user = mysqli_real_escape_string($conn, $user);
   $pass = mysqli_real_escape_string($conn, $pass);
+  //UserName="'.$user.'" and Password="'.$pass.'"
   $sql='SELECT * FROM Accounts Where UserName="'.$user.'" ';
 
   if($result=mysqli_query($conn,$sql))
