@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
 
@@ -47,26 +48,155 @@
 
 				<div class="event col-sm-12 col-md-7 col-xl-8">
 					<br>
-					<h1>Drama Fest</h1>
+					<h1>
+						<?php
+								$servername = "localhost";
+								$username = "sql";
+								$password = "sql";
+								$database = "ravens_eventgru";
+
+								// Create connection
+								$conn = mysqli_connect($servername, $username, $password, $database);
+
+								if (!$conn) {
+									die("Failed to connect to mysql" . mysqli_connect_error());
+								}
+								else
+								{
+									$result=mysqli_query($conn,"SELECT EventTitle FROM event WHERE Eventid = 1");
+									if ($result->num_rows > 0) 
+									{
+									    // output data of each row
+
+									    while($row = $result->fetch_assoc()) 
+									    {
+									        echo $row["EventTitle"]. "<br>";
+										}
+									}
+								}
+						?>
+					</h1>
 					<hr>
 					<i class="fa fa-bank" style="font-size:28px"></i>
-					<a href="#">National University of Sciences and Technology</a>
-					<br>
+						<?php
+								if (!$conn) 
+								{
+									die("Failed to connect to mysql" . mysqli_connect_error());
+								}
+								else
+								{
+
+									$result=mysqli_query($conn,"SELECT UniversityName FROM university INNER JOIN society ON university.UniversityID =  society.UniversityID INNER JOIN event ON society.Societyid=event.Societyid WHERE Eventid = 1");
+									if ($result->num_rows > 0) 
+									{
+									    // output data of each row
+
+									    while($row = $result->fetch_assoc()) 
+									    {
+									        echo $row["UniversityName"]. "<br>";
+										}
+									}
+								
+								}
+						?>
 					<p>
 						<i class="fa fa-suitcase" style="font-size:28px"></i>
-						Student Government Assosiation</p>
+						<?php
+								if (!$conn) 
+								{
+									die("Failed to connect to mysql" . mysqli_connect_error());
+								}
+								else
+								{
+
+									$result=mysqli_query($conn,"SELECT SocietyName FROM society INNER JOIN event ON society.Societyid=event.Societyid WHERE Eventid = 1");
+									if ($result->num_rows > 0) 
+									{
+									    // output data of each row
+
+									    while($row = $result->fetch_assoc()) 
+									    {
+									        echo $row["SocietyName"]. "<br>";
+										}
+									}
+								
+								}
+						?>
+					</p>
 					<hr>
-					<img class="img-fluid rounded" src="images/dramafest.jpg" alt="dramafest cover">
+					<img class="img-fluid rounded" src="
+					<?php
+								if (!$conn) 
+								{
+									die("Failed to connect to mysql" . mysqli_connect_error());
+								}
+								else
+								{
+
+									$result=mysqli_query($conn,"SELECT PosterPath FROM event WHERE Eventid = 1");
+									if ($result->num_rows > 0) 
+									{
+									    // output data of each row
+
+									    while($row = $result->fetch_assoc()) 
+									    {
+									        echo $row["PosterPath"];
+										}
+									}
+								
+								}
+						?>
+						" alt="dramafest cover">
 					<!-- so that image scales with the parent element -->
 					<hr>
-					<video width="100%" height="250" controls>
-						<source src="images/drama.mp4" type="video/mp4">
-					</video>
-					<p>Here comes the last event of the academic calender , FJMU Dramatics Society Proudly presents Performing Arts & Annual
-						Theatre: DRAMAFEST '17 Details About Performances: -Tareek Chandani (Serious Theatre) -Chodah Jama Sattar (Comedy Theatre)
-						- Jahan Mai jaati Houn (Human Puppet Show) -Kathak Dance Performance -Save Water, Save Life (Mime Performance) -Hip
-						Hop Dance Performance -Sing out loud (Singing Show) VENUE : FJMU Auditorium DATE : 24th May , 2017 TIMINGS : 3pm -
-						5pm We warmly welcome you all to join us!!!</p>
+					<iframe width="643" height="315"
+						src="
+						<?php
+								if (!$conn) 
+								{
+									die("Failed to connect to mysql" . mysqli_connect_error());
+								}
+								else
+								{
+
+									$result=mysqli_query($conn,"SELECT VideoLink FROM event WHERE Eventid = 1");
+									if ($result->num_rows > 0) 
+									{
+									    // output data of each row
+
+									    while($row = $result->fetch_assoc()) 
+									    {
+									        echo $row["VideoLink"];
+										}
+									}
+								
+								}
+						?>
+						">
+					</iframe>
+					<p>
+						<?php
+								if (!$conn) 
+								{
+									die("Failed to connect to mysql" . mysqli_connect_error());
+								}
+								else
+								{
+
+									$result=mysqli_query($conn,"SELECT Description FROM event WHERE Eventid = 1");
+									if ($result->num_rows > 0) 
+									{
+									    // output data of each row
+
+									    while($row = $result->fetch_assoc()) 
+									    {
+									        echo $row["Description"]. "<br>";
+										}
+									}
+								
+								}
+						?>
+					</p>
 					<hr>
 				</div>
 				<div class="Sidebars col-sm-12 col-md-5 col-xl-4">
@@ -75,7 +205,14 @@
 							<h4>Ratings</h4>
 						</div>
 						<div class="rating rounded">
-							<span class="rateit"> </span>
+							<span class="rateit" id="rateitt" onclick="rrr()" data-rateit-step="1" data-rateit-resetable='false'> </span>
+							<script type="text/javascript">
+							    $("#rateitt").click(function () {
+							        var data = {Rate: $(this).rateit('value')};
+							        $.post("rate.php",data);
+							    });
+							</script>
+							
 						</div>
 						<br>
 					</div>
@@ -90,18 +227,74 @@
 					<div>
 						<div class="header rounded">
 							<h4>
-								<span class="month">September</span>
+								<span class="month">
+									<?php
+								if (!$conn) 
+								{
+									die("Failed to connect to mysql" . mysqli_connect_error());
+								}
+								else
+								{
+									$result=mysqli_query($conn,"SELECT EventDate FROM event WHERE Eventid = 1");
+									if ($result->num_rows > 0) 
+									{
+									    // output data of each row
+
+									    while($row = $result->fetch_assoc()) 
+									    {
+									    	$date = date_create($row["EventDate"]);
+									        echo date_format($date, 'F');
+										}
+									}
+								}
+								?>
+								</span>
 							</h4>
 						</div>
 						<div class="cal rounded">
 							<h3>
-								<span class="weekday">Wednesday</span>
+								<span class="weekday">
+									<?php
+								 echo date_format($date, 'l');
+								?>
+								</span>
 							</h3>
 							<h1>
-								<span class="day">24</span>
+								<span class="day">
+									<?php
+								 echo date_format($date, 'jS');
+								?>
+								</span>
 							</h1>
 							<h4>
-								<span class="year">2014</span>
+								<span class="year">
+									<?php
+								 echo date_format($date, 'Y');
+								?>
+								</span>
+							</h4>
+							<h4>
+								<span class="year">
+									<?php
+								 if (!$conn) 
+								{
+									die("Failed to connect to mysql" . mysqli_connect_error());
+								}
+								else
+								{
+									$result=mysqli_query($conn,"SELECT EventTime FROM event WHERE Eventid = 1");
+									if ($result->num_rows > 0) 
+									{
+									    // output data of each row
+
+									    while($row = $result->fetch_assoc()) 
+									    {
+									        echo $row['EventTime'];
+										}
+									}
+								}
+								?>
+								</span>
 							</h4>
 						</div>
 					</div>
@@ -111,24 +304,42 @@
 					<div class="header rounded">
 						<h4>Leave a comment</h4>
 					</div>
+					<script type="text/javascript">
+						function submit()
+						{
+							var data = {comment: $("#comment-textarea").val()};
+							$.post("comments.php",data);
+							$('#comment-textarea').val('');
+						}
+					</script>
 					<div class="comsub">
-						<form>
 							<textarea class="form-control ta" id="comment-textarea"></textarea>
-							<button id="submit-comment">Submit</button>
-						</form>
+							<button type= "button" onclick="submit()" id="submit-comment">Submit</button>
 					</div>
 					<br>
-					<h5>User Name</h5>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, nostrum, aliquid, animi, ut quas placeat totam sunt
-						tempora commodi nihil ullam alias modi dicta saepe minima ab quo voluptatem obcaecati?</p>
+					<?php
+											if (!$conn) 
+											{
+												die("Failed to connect to mysql" . mysqli_connect_error());
+											}
+											else
+											{
+													$commentno = $result->num_rows;
+													$result=mysqli_query($conn,"SELECT username,Comments FROM feedback WHERE Eventid = 1");
+													for ($x = 0; $x <= $commentno; $x++) 
+													{
+														    // output data of each row
+
+														    while($row = $result->fetch_assoc()) 
+														    {
+														        echo "<h5>". $row['username'] ."</h5>";
+														        echo "<p>". $row['Comments'] ."</p>";
+															}
+												
+													}
+											}
+					?>
 					<br>
-					<h5>User Name</h5>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, nostrum, aliquid, animi, ut quas placeat totam sunt
-						tempora commodi nihil ullam alias modi dicta saepe minima ab quo voluptatem obcaecati?</p>
-					<br>
-					<h5>User Name</h5>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, nostrum, aliquid, animi, ut quas placeat totam sunt
-						tempora commodi nihil ullam alias modi dicta saepe minima ab quo voluptatem obcaecati?</p>
 
 				</div>
 			</div>
@@ -146,7 +357,50 @@
 				// Map options
 				var options = {
 					zoom: 16,
-					center: { lat: 33.6502423, lng: 73.0791017 }
+					center: { lat: 	<?php
+											if (!$conn) 
+											{
+												die("Failed to connect to mysql" . mysqli_connect_error());
+											}
+											else
+											{
+													$commentno = $result->num_rows;
+													$result=mysqli_query($conn,"SELECT VenuLat FROM event WHERE Eventid = 1");
+				if ($result->num_rows > 0) 
+				{
+				    // output data of each row
+
+				    while($row = $result->fetch_assoc()) 
+				    {
+				        echo $row["VenuLat"];
+					}
+				}
+													
+											}
+					?>
+
+						, lng:<?php
+											if (!$conn) 
+											{
+												die("Failed to connect to mysql" . mysqli_connect_error());
+											}
+											else
+											{
+													$commentno = $result->num_rows;
+													$result=mysqli_query($conn,"SELECT VenuLng FROM event WHERE Eventid = 1");
+				if ($result->num_rows > 0) 
+				{
+				    // output data of each row
+
+				    while($row = $result->fetch_assoc()) 
+				    {
+				        echo $row["VenuLng"];
+					}
+				}
+													
+											}
+					?>
+						 }
 				}
 
 				// New map
@@ -157,7 +411,47 @@
 
 				// Add marker
 				var marker = new google.maps.Marker({
-					position: { lat: 33.6502423, lng: 73.0791017 },
+					position: { lat: <?php
+											if (!$conn) 
+											{
+												die("Failed to connect to mysql" . mysqli_connect_error());
+											}
+											else
+											{
+													$commentno = $result->num_rows;
+													$result=mysqli_query($conn,"SELECT VenuLat FROM event WHERE Eventid = 1");
+				if ($result->num_rows > 0) 
+				{
+				    // output data of each row
+
+				    while($row = $result->fetch_assoc()) 
+				    {
+				        echo $row["VenuLat"];
+					}
+				}
+													
+											}
+					?>, lng: <?php
+											if (!$conn) 
+											{
+												die("Failed to connect to mysql" . mysqli_connect_error());
+											}
+											else
+											{
+													$commentno = $result->num_rows;
+													$result=mysqli_query($conn,"SELECT VenuLng FROM event WHERE Eventid = 1");
+				if ($result->num_rows > 0) 
+				{
+				    // output data of each row
+
+				    while($row = $result->fetch_assoc()) 
+				    {
+				        echo $row["VenuLng"];
+					}
+				}
+													
+											}
+					?>},
 					map: map,
 				});
 

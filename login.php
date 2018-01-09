@@ -1,9 +1,12 @@
-
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <html>
 <head>
-    <meta charset="utf-8"> 
+    <meta charset="utf-8">
+	<!-- google login -->
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+	<meta name="google-signin-client_id" content="698968730284-cvp920b6ipmgukv1o2k1nm3hmv0053gl.apps.googleusercontent.com"> 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Login</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
@@ -18,14 +21,55 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>	
 
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+	<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
-    <!-- <link rel="stylesheet" type="text/css" href="plugins/rateit.js-master/scripts/rateit.css"/>
-	<script src="plugins/rateit.js-master/scripts/jquery.rateit.min.js"></script>	 -->
+    <link rel="stylesheet" type="text/css" href="plugins/rateit.js-master/scripts/rateit.css"/>
+	<script src="plugins/rateit.js-master/scripts/jquery.rateit.min.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	
 	<script  type="text/javascript" src="plugins/typeahead.bundle.js"></script>
     <link rel="icon" href="images/icon.png">
 
     <link rel="stylesheet" type="text/css" href="css/login.css"/>
 
+    <?php
+		if(isset($_POST["signupSubmit"]))
+		{
+			$servername='localhost';
+			$username='root';
+			$password='';
+			$database='ravens_eventgru';
+			$conn= mysqli_connect($servername,$username,$password,$database);
+			if (!$conn)
+			{
+				die("Failed to connect to MySQL: " . mysqli_connect_error());
+			}
+
+			$firstName = mysqli_escape_string($conn, $_POST['sign-firstname']);
+			$lastName = mysqli_escape_string($conn, $_POST['sign-lastname']);
+			$userName = mysqli_escape_string($conn, $_POST['sign-username']);
+			$gender = mysqli_escape_string($conn, $_POST['sign-gender']);
+			$email = mysqli_escape_string($conn, $_POST['sign-email']);
+			$password = password_hash($_POST['sign-password'], PASSWORD_DEFAULT);
+			$query="INSERT INTO Accounts VALUES ('$userName','$password','$firstName','$lastName','$gender','$email',0)";
+			mysqli_query($conn,$query);
+			if(mysqli_affected_rows($conn)>0)
+			{
+				echo "<script type='text/javascript'>
+						$(document).ready(function(){
+							$('#myModal').modal('show');
+						});
+						</script>";
+			}
+			else if(mysqli_affected_rows($conn)==-1)
+			{
+				echo "<script> alert('Error in creating account');</script>";
+			}
+		}
+	?>
+	
     <script>
 	    function strength_check(password)
 		{
@@ -105,14 +149,65 @@
 			document.getElementById("strengthShow").innerHTML=strength;
 		}
 
+		function username_check(username){
+	    	var message="";
+			if(username.length>0)
+    		{
+    			$.ajax({
+    				type: "POST",
+    				url: "searchAccounts.php", 
+    				data: {name: username},
+    				success: function(data){
+    					if(data=="Yes"){
+    						$("#sign-username").addClass("success");
+    						$("#message").css('color', 'red');
+    						message="Username already exists";
+    						document.getElementById("message").innerHTML=message;
+    						$("#signupSubmit").prop("disabled",true);
+    						console.log("PRESENT");
+    					}
 
+    					else if(data=="No"){
+    						$("#sign-username").removeClass("success");
+    						message="";
+    						document.getElementById("message").innerHTML=message;
+    						$("#signupSubmit").prop("disabled",false);
+    						console.log("ABSENT");
+    					}
+    					//alert(typeof(data));
+    				}
+    			});
+    		}
+
+    		else{
+    			$("#sign-username").removeClass("success");
+    			message="";
+    			document.getElementById("message").innerHTML=message;
+    			$("#signupSubmit").prop("disabled",false);
+    		}
+
+    	}
     
     </script>
+	<script>
+	function onSignIn(googleUser) {
+  var profile = googleUser.getBasicProfile();
+  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+  console.log('Name: ' + profile.getName());
+  console.log('Image URL: ' + profile.getImageUrl());
+  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+
+}
+function signOut() {
+			var auth2 = gapi.auth2.getAuthInstance();
+			auth2.signOut().then(function () {
+			console.log('User signed out.');
+					});	
+				}
+	</script>
 </head>
 <body>
-    <?php
-    include "header.php";
-    ?>
+    <?php include "header.php"; ?>
     <!--INSERT YOUR CONTENT HERE-->
     <div class="container-fluid bg-light">
     	<br/>
@@ -125,7 +220,7 @@
 				        	<label for="log-username">User Name</label>
 				        	<div class="input-group">
 							    <span class="input-group-addon"><i class="fa fa-user"></i></span>
-							    <input class="form-control form-control-sm" id="log-username" name="log-username" placeholder="UserName" type="text" required>
+							    <input class="form-control form-control-sm" id="log-username" name="log-username" placeholder="UserName" type="text" pattern="[a-zA-Z0-9-_]*" required>
 							</div>
 					    </div>
 					</div>
@@ -135,7 +230,7 @@
 					    	<label for="log-password">Password</label>
 					    	<div class="input-group">
 							    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-							    <input class="form-control form-control-sm" id="log-password" name="log-password" placeholder="Password" type="password" required>
+							    <input class="form-control form-control-sm" id="log-password" name="log-password" placeholder="Password" type="password" pattern="[a-zA-Z0-9!@#$%^&*]*" required>
 							</div>
 					    </div>
 					</div>
@@ -154,30 +249,34 @@
 								{
 								?>
 									<div class="row">
-				       					 <div class="col-sm-12 form-group">
-				          				<span>Incorrect username/password.</span>
-				       					 </div>
+				       					<div class="col-sm-12 form-group">
+				          					<span style="color:red">Incorrect username/password.</span>
+				       					</div>
 				    				</div>
 									<?php
 									unset($_SESSION["userinfo"]);
 								}
 							}
 					?>
+					<div class="g-signin2" data-onsuccess="onSignIn"></div>
+					<a href="https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=http://localhost/web/EventGuru/logout.php" onclick="signOut();"><button class="btn btn-default btn-sm pull-right">Sign out</button></a>
+					<br>
 			    </form>
+ 
 		    </div>
 	
 			<div class="col-xs-12 col-md-6">
-				<form action="" class="signup" onsubmit="submitform()">
+				<form action="" method="POST" class="signup" onsubmit="submitform()">
 					<h2>Sign Up</h2>
 					<div class="row">
 				        <div class="col-sm-12 col-md-6 form-group">
 				        	<label for="sign-firstname">First Name</label>
-				            <input class="form-control form-control-sm" id="sign-firstname" name="sign-firstname" placeholder="First Name" type="text" required>
+				            <input class="form-control form-control-sm" id="sign-firstname" name="sign-firstname" placeholder="First Name" type="text" pattern="[a-zA-Z ']*" maxlength="30" required>
 					    </div>
 
 					    <div class="col-sm-12 col-md-6 form-group">
 					    	<label for="sign-lastname">Last Name</label>
-				            <input class="form-control form-control-sm" id="sign-lastname" name="sign-lastname" placeholder="Last Name" type="text" required>
+				            <input class="form-control form-control-sm" id="sign-lastname" name="sign-lastname" placeholder="Last Name" type="text" pattern="[a-zA-Z ']*" maxlength="30" required>
 					    </div>
 					</div>
 
@@ -186,7 +285,8 @@
 				        	<label for="sign-username">User Name</label>
 				        	<div class="input-group">
 							    <span class="input-group-addon"><i class="fa fa-user"></i></span>
-							    <input class="form-control form-control-sm" id="sign-username" name="sign-username" placeholder="UserName" type="text" required>
+							    <input class="form-control form-control-sm" id="sign-username" name="sign-username" placeholder="UserName (Letters, digits, hyphens, underscores allowed)" type="text" pattern="[a-zA-Z0-9-_]*" maxlength="30" required oninput="username_check(this.value)">&nbsp;<br/>
+							    <span id="message"></span><br/>
 							</div>
 						</div>
 					</div>
@@ -194,8 +294,8 @@
 					<div class="row">
 					    <div class="col-sm-12 form-group">
 					    	Gender&nbsp;&nbsp;
-					    	<label class="radio-inline"><input type="radio" name="sign-gender" required>Male</label>
-							<label class="radio-inline"><input type="radio" name="sign-gender">Female</label>
+					    	<label class="radio-inline"><input type="radio" name="sign-gender" value="Male" required>Male</label>
+							<label class="radio-inline"><input type="radio" name="sign-gender" value="Female">Female</label>
 					    </div>
 					</div>
 
@@ -214,7 +314,7 @@
 					    	<label for="sign-password">Password</label>
 					    	<div class="input-group">
 							    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-							    <input class="form-control form-control-sm" id="sign-password" name="sign-password" placeholder="Password" type="password" oninput="strength_check(this.value)" required>&nbsp;&nbsp;
+							    <input class="form-control form-control-sm" id="sign-password" name="sign-password" placeholder="Password (Letters, digits, !@#$%^&* allowed)" type="password" pattern="[a-zA-Z0-9!@#$%^&*]*" maxlength="30" oninput="strength_check(this.value)" required>&nbsp;&nbsp;
 							    <span id="strengthShow"></span>
 							</div>
 					    </div>
@@ -222,7 +322,7 @@
 
 					<div class="row">
 				        <div class="col-sm-12 form-group">
-				          	<button class="btn btn-default btn-sm pull-right" type="submit">Sign up</button>
+				          	<button class="btn btn-default btn-sm pull-right" type="submit" id="signupSubmit" name="signupSubmit">Sign up</button>
 				        </div>
 				    </div>
 			    </form>
@@ -231,6 +331,25 @@
 		</div> 
 	</div> 
 	<!--YOUR CONTENT ENDS HERE-->
+
+	<div id="myModal" class="modal fade accountModal">
+		<div class="modal-dialog modal-confirm">
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="icon-box">
+						<i class="material-icons">done</i>
+					</div>				
+					<h4 class="modal-title">Success!</h4>	
+				</div>
+				<div class="modal-body">
+					<p class="text-center">Your account has been successfully created. Kindly log in to continue.</p>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-block" data-dismiss="modal">OK</button>
+				</div>
+			</div>
+		</div>
+	</div>  
 
     <?php
     include "footer.php";

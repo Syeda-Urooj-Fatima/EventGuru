@@ -1,6 +1,4 @@
-<?php
-	session_start();
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,8 +18,8 @@
 
 		<!-- <link rel="stylesheet" type="text/css" href="plugins/rateit.js-master/scripts/rateit.css"/>
 		<script src="plugins/rateit.js-master/scripts/jquery.rateit.min.js"></script> -->
-		<!--<script  type="text/javascript" src="plugins/typeahead.bundle.js"></script>
-		<link rel="icon" href="images/icon.png"/>-->
+		<!--<script  type="text/javascript" src="plugins/typeahead.bundle.js"></script>-->
+		<link rel="icon" href="images/icon.png"/>
 
 		<link rel="stylesheet" href="css/header.css"/>
 
@@ -147,37 +145,32 @@
 			<div class="collapse navbar-collapse" id="collapsibleNavbar2">
 				<ul class="navbar-nav">
 					<li class="nav-item">
-						<a href="test.php" class="nav-link">Musical
+						<a href="test.php?cat=Concert" class="nav-link">Concert
 							<i class="fa fa-music"></i>
 						</a>
 					</li>
 					<li class="nav-item">
-						<a href="test.php" class="nav-link">Workshop
-							<i class="fa fa-pencil"></i>
+						<a href="test.php?cat=Sports" class="nav-link">Sports
+							<i class="fa fa-futbol-o"></i>
 						</a>
 					</li>
 					<li class="nav-item">
-						<a href="test.php" class="nav-link">Food
-							<i class="fa fa-cutlery"></i>
-						</a>
-					</li>
-					<li class="nav-item">
-						<a href="test.php" class="nav-link">Education
-							<i class="fa fa-book"></i>
-						</a>
-					</li>
-					<li class="nav-item">
-						<a href="test.php" class="nav-link">Games
+						<a href="test.php?cat=EGaming" class="nav-link">EGaming
 							<i class="fa fa-gamepad"></i>
 						</a>
 					</li>
 					<li class="nav-item">
-						<a href="test.php" class="nav-link">Entertainment
-							<i class="fa fa-film"></i>
+						<a href="test.php?cat=Seminar" class="nav-link">Seminar
+							<i class="fa fa-users"></i>
 						</a>
 					</li>
 					<li class="nav-item">
-						<a href="test.php" class="nav-link">More
+						<a href="test.php?cat=Hackathon" class="nav-link">Hackathon
+							<i class="fa fa-certificate"></i>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="test.php?cat=" class="nav-link">More
 							<i class="fa fa-chevron-circle-right"></i>
 						</a>
 					</li>
