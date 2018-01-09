@@ -19,7 +19,7 @@
  	<link rel="stylesheet" type="text/css" href="plugins/rateit.js-master/scripts/rateit.css"/>
 
 	<?php
-		$con = mysqli_connect("localhost","User1","user1.123","event_guru");
+		$con = mysqli_connect("localhost","admin1","admin1","ravens_eventgru");
 		// Check connection
 		if (mysqli_connect_errno())
 		  {
@@ -171,7 +171,8 @@
 			else if (isset($_GET['cat'])){
 				$sql = "SELECT PosterPath, EventTitle,EventId, SocietyName, UniversityName, EventDate, EventTime, S_Rating, Category FROM event Natural Join University Natural Join Society WHERE Category = '".$_GET["cat"]."'";
 			}
-			else if($_POST['ID']=="" && $_POST['cat']==""){
+			if (isset($_POST['submit'])){
+			if($_POST['ID']=="" && $_POST['cat']==""){
 				$sql = "SELECT PosterPath ,EventTitle, EventId, SocietyName, UniversityName, EventDate, EventTime, S_Rating, Category FROM event Natural Join University Natural Join Society"; 
 			}
 			else if ($_POST['ID']==""){
@@ -189,6 +190,7 @@
 			else{
 			$sql = "SELECT PosterPath, EventTitle,EventId, SocietyName, UniversityName, EventDate, EventTime, S_Rating, Category FROM event Join University Join Society Where UniversityId = ".$_POST["ID"]." AND Category = '".$_POST["cat"]."'";
 			}
+		}
 		
 		if ($result = $con->query($sql)){
 			if ($result->num_rows > 0) {
