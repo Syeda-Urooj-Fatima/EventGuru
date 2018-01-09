@@ -8,7 +8,7 @@
 		$servername = "localhost";
 		$username = "sql";
 		$password = "sql";
-		$database = "ravens_raven1";
+		$database = "ravens_eventgru";
 		$conn = mysqli_connect($servername, $username, $password, $database);
 		if (!$conn) {
 		    die("Connection failed: " . mysqli_connect_error());

@@ -18,7 +18,8 @@
 		<script type="text/javascript" src="bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
 		<link rel="stylesheet" href="bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css"
 		/>
-		
+		<!-- <link rel="stylesheet" href="plugins/rateit.js-master/scripts/rateit.css">
+		<script src="plugins/rateit.js-master/scripts/jquery.rateit.min.js"></script> -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
@@ -27,10 +28,6 @@
         <script src="head_foot.js"></script> -->
         
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
-		<link rel="stylesheet" type="text/css" href="plugins/rateit.js-master/scripts/rateit.css"/>
-		<script src="plugins/rateit.js-master/scripts/jquery.rateit.min.js"></script>
-		<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
-		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 		<script  type="text/javascript" src="plugins/typeahead.bundle.js"></script>
 		<script type="text/javascript">
 			function googleTranslateElementInit() {
@@ -56,7 +53,7 @@
 								$servername = "localhost";
 								$username = "sql";
 								$password = "sql";
-								$database = "ravens_raven1";
+								$database = "ravens_eventgru";
 
 								// Create connection
 								$conn = mysqli_connect($servername, $username, $password, $database);
@@ -211,11 +208,8 @@
 							<span class="rateit" id="rateitt" onclick="rrr()" data-rateit-step="1" data-rateit-resetable='false'> </span>
 							<script type="text/javascript">
 							    $("#rateitt").click(function () {
-
-							       // var x = $(this).rateit('value');
-							       // alert(x);
-							        //$.post("rate.php",x);
-							        //window.locaton="rate.php";
+							        var data = {Rate: $(this).rateit('value')};
+							        $.post("rate.php",data);
 							    });
 							</script>
 							
@@ -276,6 +270,29 @@
 								<span class="year">
 									<?php
 								 echo date_format($date, 'Y');
+								?>
+								</span>
+							</h4>
+							<h4>
+								<span class="year">
+									<?php
+								 if (!$conn) 
+								{
+									die("Failed to connect to mysql" . mysqli_connect_error());
+								}
+								else
+								{
+									$result=mysqli_query($conn,"SELECT EventTime FROM event WHERE Eventid = 1");
+									if ($result->num_rows > 0) 
+									{
+									    // output data of each row
+
+									    while($row = $result->fetch_assoc()) 
+									    {
+									        echo $row['EventTime'];
+										}
+									}
+								}
 								?>
 								</span>
 							</h4>
