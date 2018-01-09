@@ -24,8 +24,8 @@
 	$lng = round($lng,5);
 
 	$servername = "localhost";
-	$username = "root";
-	$password = "safe";
+	$username = "admin1";
+	$password = "admin1";
 	$dbname = "ravens_eventgru";
 
 	// Create connection
