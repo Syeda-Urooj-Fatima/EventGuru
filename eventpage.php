@@ -67,13 +67,23 @@
 									{
 									    // output data of each row
 
-									    while($row = $result->fetch_assoc()) 
+									    while($row1 = $result->fetch_assoc()) 
 									    {
-									        echo $row["EventTitle"]. "<br>";
+									        echo $row1["EventTitle"];
 										}
 									}
 								}
 						?>
+						
+						  <button id="reg" onClick="redirect()" style="float: right;">Register Yourself
+							    <script type="text/javascript">
+							    function redirect()
+							    {
+							    var url = "https://goo.gl/RZq6r4";
+							    window.location = url;
+							    }
+							    </script>
+							</button>
 					</h1><input id="event-id" value="<?php echo $eventId; ?>" hidden>
 					<hr>
 					<i class="fa fa-bank" style="font-size:28px"></i>
@@ -85,7 +95,7 @@
 								else
 								{
 
-									$result=mysqli_query($conn,"SELECT UniversityName FROM university INNER JOIN society ON university.UniversityID =  society.UniversityID INNER JOIN event ON society.Societyid=event.Societyid WHERE Eventid = '$eventId'");
+									$result=mysqli_query($conn,"SELECT UniversityName,SocietyName FROM university INNER JOIN society ON university.UniversityID =  society.UniversityID INNER JOIN event ON society.Societyid=event.Societyid WHERE Eventid = '$eventId'");
 									if ($result->num_rows > 0) 
 									{
 									    // output data of each row
@@ -169,9 +179,9 @@
 									{
 									    // output data of each row
 
-									    while($row = $result->fetch_assoc()) 
+									    while($row1 = $result->fetch_assoc()) 
 									    {
-									        echo $row["PosterPath"];
+									        echo $row1["PosterPath"];
 										}
 									}
 								
@@ -180,7 +190,7 @@
 						" alt="dramafest cover">
 					<!-- so that image scales with the parent element -->
 					<hr>
-					<iframe width="100%" height="250px">
+					<iframe width="100%" height="250px"
 						src="
 						<?php
 								if (!$conn) 
