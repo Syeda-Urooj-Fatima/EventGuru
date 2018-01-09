@@ -44,35 +44,35 @@ include "header.php";
 			</ol>
 			<div class="carousel-inner" role="listbox">
 				<div class="carousel-item active">
-					<img class="first-slide d-block img-fluid" src="images/15.jpg" alt="First slide">
+					<img class="first-slide d-block img-fluid" src="images/event1.png" alt="First slide">
 				</div>
 					<div class="container">
 						<div class="carousel-caption">
 					</div>
 				</div>
 				<div class="carousel-item">
-					<img class="second-slide d-block img-fluid" src="images/13.jpg" alt="Second slide">
-					<div class="container">
-						<div class="carousel-caption">
-						</div>
-					</div>
-				</div>
-				<div class="carousel-item">
-					<img class="third-slide d-block img-fluid" src="images/14.jpg" alt="Third slide">
+					<img class="second-slide d-block img-fluid" src="images/event2.png" alt="Second slide">
 					<div class="container">
 						<div class="carousel-caption">
 						</div>
 					</div>
 				</div>
 				<div class="carousel-item">
-					<img class="forth-slide d-block img-fluid" src="images/12.jpg" alt="Forth slide">
+					<img class="third-slide d-block img-fluid" src="images/event3.png" alt="Third slide">
 					<div class="container">
 						<div class="carousel-caption">
 						</div>
 					</div>
 				</div>
 				<div class="carousel-item">
-					<img class="fifth-slide d-block img-fluid" src="images/16.jpg" alt="Fifth slide">
+					<img class="forth-slide d-block img-fluid" src="images/event4.png" alt="Forth slide">
+					<div class="container">
+						<div class="carousel-caption">
+						</div>
+					</div>
+				</div>
+				<div class="carousel-item">
+					<img class="fifth-slide d-block img-fluid" src="images/event7.png" alt="Fifth slide">
 					<div class="container">
 						<div class="carousel-caption">
 						</div>
