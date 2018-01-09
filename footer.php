@@ -48,7 +48,7 @@
 			$servername='localhost';
 			$username='admin1';
 			$password='admin1';
-			$database='event_gru';
+			$database='ravens_eventgru';
 			$conn= mysqli_connect($servername,$username,$password,$database);
 			if (!$conn)
 			{

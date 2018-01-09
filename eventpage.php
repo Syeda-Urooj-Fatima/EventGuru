@@ -3,37 +3,34 @@
 <html>
 
 	<head>
+		<title>Event Guru - Event Page</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
-		<link rel="stylesheet" href="css/styles.css">
-
-
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="bootstrap4/css/bootstrap.min.css" />
+		<script src="jquery/jquery-3.2.1.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+		<script src="bootstrap4/js/bootstrap.min.js"></script>
 
 		<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
 		<script type="text/javascript" src="bower_components/moment/min/moment.min.js"></script>
 		<script type="text/javascript" src="bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
 		<link rel="stylesheet" href="bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css"
 		/>
-		<!-- <link rel="stylesheet" href="plugins/rateit.js-master/scripts/rateit.css">
-		<script src="plugins/rateit.js-master/scripts/jquery.rateit.min.js"></script> -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+
+		<link rel="stylesheet" href="plugins/rateit.js-master/scripts/rateit.css">
+		<script src="plugins/rateit.js-master/scripts/jquery.rateit.min.js"></script> 
+
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-		<!-- <link rel="stylesheet" href="css/header.css" />
-		<link rel="stylesheet" href="css/footer.css">
-        <script src="head_foot.js"></script> -->
+		<link rel="stylesheet" href="css/styles.css">
         
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
 		<script  type="text/javascript" src="plugins/typeahead.bundle.js"></script>
 		<script type="text/javascript">
 			function googleTranslateElementInit() {
 				new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
 			}
         </script>
+        <link rel="icon" href="images/icon.png">
 
 	</head>
 

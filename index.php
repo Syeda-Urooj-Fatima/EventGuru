@@ -3,28 +3,25 @@
 <html>
 <head>
 <meta charset="utf-8">
+		<title>Event Guru</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" />
-
-		<!-- jQuery library -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-		<!-- Popper JS -->
+		<link rel="stylesheet" href="bootstrap4/css/bootstrap.min.css" />
+		<script src="jquery/jquery-3.2.1.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
-
-		<!-- Latest compiled JavaScript -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+		<script src="bootstrap4/js/bootstrap.min.js"></script>
 
 		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
 		/>
 
 		<link rel="stylesheet" type="text/css" href="plugins/rateit.js-master/scripts/rateit.css"/>
 		<script src="plugins/rateit.js-master/scripts/jquery.rateit.min.js"></script>
+
 		<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 		<script  type="text/javascript" src="plugins/typeahead.bundle.js"></script>
+
 		<link href="css/carousel.css" rel="stylesheet" />
-		<!--<script src="js/head_foot.js"></script>-->
+		<link rel="icon" href="images/icon.png">
 	
 </head>
 <body>
@@ -44,35 +41,35 @@ include "header.php";
 			</ol>
 			<div class="carousel-inner" role="listbox">
 				<div class="carousel-item active">
-					<img class="first-slide d-block img-fluid" src="images/15.jpg" alt="First slide">
+					<img class="first-slide d-block img-fluid" src="images/event1.png" alt="First slide">
 				</div>
 					<div class="container">
 						<div class="carousel-caption">
 					</div>
 				</div>
 				<div class="carousel-item">
-					<img class="second-slide d-block img-fluid" src="images/13.jpg" alt="Second slide">
-					<div class="container">
-						<div class="carousel-caption">
-						</div>
-					</div>
-				</div>
-				<div class="carousel-item">
-					<img class="third-slide d-block img-fluid" src="images/14.jpg" alt="Third slide">
+					<img class="second-slide d-block img-fluid" src="images/event2.png" alt="Second slide">
 					<div class="container">
 						<div class="carousel-caption">
 						</div>
 					</div>
 				</div>
 				<div class="carousel-item">
-					<img class="forth-slide d-block img-fluid" src="images/12.jpg" alt="Forth slide">
+					<img class="third-slide d-block img-fluid" src="images/event3.png" alt="Third slide">
 					<div class="container">
 						<div class="carousel-caption">
 						</div>
 					</div>
 				</div>
 				<div class="carousel-item">
-					<img class="fifth-slide d-block img-fluid" src="images/16.jpg" alt="Fifth slide">
+					<img class="forth-slide d-block img-fluid" src="images/event4.png" alt="Forth slide">
+					<div class="container">
+						<div class="carousel-caption">
+						</div>
+					</div>
+				</div>
+				<div class="carousel-item">
+					<img class="fifth-slide d-block img-fluid" src="images/event7.png" alt="Fifth slide">
 					<div class="container">
 						<div class="carousel-caption">
 						</div>
