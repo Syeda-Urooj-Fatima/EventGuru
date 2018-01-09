@@ -69,6 +69,8 @@
 
 	    // clean up the file resource
 	    fclose( $ifp );
+
+	    echo "success";
 	}
 
 	$sql1 = "select SocietyId from Admin where username='haseeb'";
@@ -92,5 +94,7 @@
 	if ($posterPath!="") {
 		base64_to_jpeg($poster,$posterPath);
 	}
+
+	header('test.php?ID='.$EventId);
 
 ?>

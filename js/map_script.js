@@ -74,8 +74,13 @@ function geocodePosition(pos) {
   geocoder.geocode({latLng: pos}, function(responses) {
     if (responses && responses.length > 0) {
       var address = responses[0].formatted_address;
+      var lat = responses[0].geometry.location.lat;
+      var lng = responses[0].geometry.location.lng;
       $("#address").attr('disabled','true');
       $("#address").val(address);
+      $("#form-lat").val(lat);
+      $("#form-lng").val(lng);
     }
   });
+
 }
