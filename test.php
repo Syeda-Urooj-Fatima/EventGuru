@@ -160,22 +160,34 @@
 	<div class="row">
 		
 		<?php 
-		if (!isset($_POST['submit'])) { ?>
+		if (!isset($_POST['submit'])&& (!isset($_GET['ID'])) && (!isset($_GET['cat']))) { ?>
 		    <br>
 		    <p align="center"> Please Select from the above search criteria in order to display events <br> Thank You :) </p>
 		<?php } else{
 			// print_r($_POST);
-			if($_POST['ID']=="" && $_POST['cat']==""){
+			if (isset($_GET['ID'])){
+				$sql = "SELECT PosterPath, EventTitle,EventId, SocietyName, UniversityName, EventDate, EventTime, S_Rating, Category FROM event Natural Join University Natural Join Society WHERE UniversityId = ".$_GET["ID"];
+			}
+			else if (isset($_GET['cat'])){
+				$sql = "SELECT PosterPath, EventTitle,EventId, SocietyName, UniversityName, EventDate, EventTime, S_Rating, Category FROM event Natural Join University Natural Join Society WHERE Category = '".$_GET["cat"]."'";
+			}
+			else if($_POST['ID']=="" && $_POST['cat']==""){
 				$sql = "SELECT PosterPath ,EventTitle, EventId, SocietyName, UniversityName, EventDate, EventTime, S_Rating, Category FROM event Natural Join University Natural Join Society"; 
 			}
 			else if ($_POST['ID']==""){
-				$sql = "SELECT PosterPath, EventTitle,EventId, SocietyName, UniversityName, EventDate, EventTime, S_Rating, Category FROM event Natural Join University Natural Join Society WHERE Category = ".$_POST["cat"];
+				$sql = "SELECT PosterPath, EventTitle,EventId, SocietyName, UniversityName, EventDate, EventTime, S_Rating, Category FROM event Natural Join University Natural Join Society WHERE Category = '".$_POST["cat"]."'";
 			}
 			else if ($_POST['cat']==""){
 				$sql = "SELECT PosterPath, EventTitle,EventId, SocietyName, UniversityName, EventDate, EventTime, S_Rating, Category FROM event Natural Join University Natural Join Society WHERE UniversityId = ".$_POST["ID"];
 			}
+			else if ($_GET['ID']){
+				$sql = "SELECT PosterPath, EventTitle,EventId, SocietyName, UniversityName, EventDate, EventTime, S_Rating, Category FROM event Natural Join University Natural Join Society WHERE UniversityId = ".$_GET["ID"];
+			}
+			else if ($_GET['cat']){
+				$sql = "SELECT PosterPath, EventTitle,EventId, SocietyName, UniversityName, EventDate, EventTime, S_Rating, Category FROM event Natural Join University Natural Join Society WHERE Category = '".$_POST["cat"]."'";
+			}
 			else{
-			$sql = "SELECT PosterPath, EventTitle,EventId, SocietyName, UniversityName, EventDate, EventTime, S_Rating, Category FROM event Join University Join Society Where UniversityId = ".$_POST["ID"]." AND Category = ".$_POST["cat"];
+			$sql = "SELECT PosterPath, EventTitle,EventId, SocietyName, UniversityName, EventDate, EventTime, S_Rating, Category FROM event Join University Join Society Where UniversityId = ".$_POST["ID"]." AND Category = '".$_POST["cat"]."'";
 			}
 		
 		if ($result = $con->query($sql)){
