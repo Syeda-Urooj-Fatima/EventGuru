@@ -3,8 +3,8 @@
 
 <?php
 		$servername = "localhost";
-		$username = "sql";
-		$password = "sql";
+		$username = "admin1";
+		$password = "admin1";
 		$database = "ravens_eventgru";
 		$conn = mysqli_connect($servername, $username, $password, $database);
 		if (!$conn) {
