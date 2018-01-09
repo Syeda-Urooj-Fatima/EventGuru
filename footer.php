@@ -135,10 +135,12 @@
 				    <p>We at EventGuru promise to provide you with timely updates regarding the events around you</p>
 				    <br/>
 				    <h2>More</h2>
-				    <form action="Statistics.php">
+				    <a href="Statistics.php">
 				    	<button type= "submit" onclick="" class="btn btn-danger">Website stats</button>
-				    </form>
+				    </a>
+				    <a href="MeetTeam.php">
 				    <button type= "button" onclick="" name="meetTeam" id="meetTeam" class="btn btn-danger">Meet the team</button>
+					</a>
 			    </div>
 			</div>
 		</div>
