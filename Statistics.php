@@ -29,7 +29,7 @@
 		  {
 		  echo "Failed to connect to MySQL: " . mysqli_connect_error();
 		  }
-		  $Users = $con->query("SELECT count(UserName) FROM accounts WHERE isAdmin = 0");
+		  $Users = $con->query("SELECT count(UserName) FROM accounts");
 		  $Users = $Users->fetch_array();
 
 		  $University = $con->query("SELECT count(UniversityId) FROM university");
