@@ -95,14 +95,16 @@
 		if($_SESSION["google"]==true)
 		{
 			echo "<style> #login,#signup{display:none;}</style>";
-			echo "<style>#google_signout{display:inline;}</style>";	
+			echo "<style>#google_signout{display:inline;}</style>";
+
 		}
 	}	
-	if(!isset($_SESSION["google"]))
-	{
-		echo "<style> #login,#signup{display:inline;}</style>";
-		echo "<style>#google_signout{display:none;}</style>";	
-	}
+	// if(!isset($_SESSION["google"]))
+	// {
+	// 	echo "<style> #login,#signup{display:inline;}</style>";
+	// 	echo "<style>#google_signout{display:none;}</style>";	
+	// }
+
 	?>
 		<nav id="nav-top" class="navbar navbar-expand-lg">
 			<a class="navbar navbar-brand logo" href="index.php">
