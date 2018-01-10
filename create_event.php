@@ -153,6 +153,13 @@
 				<input type="url" class="form-control" id="video-link">
 			</div>
 		</div>
+		</div><div class="row">
+			<div class="col-md-1"></div>
+			<div class="col-md-4">
+				<h5><b>Google Form:</b></h5>
+				<input type="url" class="form-control" id="google-form">
+			</div>
+		</div>
 	</div>
 	<div style="height: 30px; background-color: #b20a0a; margin-top: 20px;"></div>
 
@@ -170,6 +177,7 @@
 		<input id="form-phone" name="phone">
 		<input id="form-ticketPrice" name="ticketPrice">
 		<input id="form-videoLink" name="videoLink">
+		<input id="form-googleForm" name="googleForm">
 	</form>
 
 </body>
