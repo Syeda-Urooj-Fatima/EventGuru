@@ -239,11 +239,11 @@
 					<hr>
 				</div>
 				<div class="Sidebars col-sm-12 col-md-5 col-xl-4">
-					<div>
+					<div id="r1">
 						<div class="header rounded">
 							<h4>Ratings</h4>
 						</div>
-						<div class="rating rounded">
+						<div class="rounded rating">
 							<span class="rateit" id="rateitt" onclick="rrr()" data-rateit-step="1" data-rateit-resetable='false'> </span>
 							<script type="text/javascript">
 							    $("#rateitt").click(function () {
@@ -259,6 +259,7 @@
 						<div class="header rounded">
 							<h4>Location</h4>
 						</div>
+
 						<div id="map">
 						</div>
 						<br>
@@ -505,6 +506,7 @@
 					echo "<script type=\"text/javascript\">
 						document.getElementById('comment-textarea').disabled=false;
 						</script>";
+						echo "<style> #r1{display:inline;}</style>";
 				}
 			}
 			elseif(!isset($_SESSION["userinfo"]) or $_SESSION["userifno"]=="wrong")
@@ -512,8 +514,10 @@
 				echo "<script type=\"text/javascript\">
 						document.getElementById('comment-textarea').disabled=true;
 						</script>";
+						echo "<style> #r1{display:none;}</style>";
 			}
 		?>
+	
 		
 	</body>
 
