@@ -1,0 +1,21 @@
+.signup {
+    padding: 19px 29px 29px;
+    background-color: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    box-shadow: 0 1px 2px rgba(0,0,0,.05);
+    margin-bottom: 30px;
+}
+
+.signup, .signup>h2{
+    font-family:"Cambria";
+	letter-spacing: 2px;
+	color:#b20a0a;
+}
+
+h1{
+  font-family:"Cambria";
+  letter-spacing: 2px;
+  color:#b20a0a;
+}
+
