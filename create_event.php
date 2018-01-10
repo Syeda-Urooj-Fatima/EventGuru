@@ -29,8 +29,6 @@
 </head>
 
 <body>
-
-
 	<div class="container" id="pageHead">
 		<div style="height: 30px; background-color: #b20a0a; margin-bottom: 20px;"></div>
 		<ul class="md-friendly nav nav-tabs" style="margin-bottom: 10px;">

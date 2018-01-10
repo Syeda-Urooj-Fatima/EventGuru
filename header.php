@@ -150,7 +150,7 @@
 					</a>-->
 					</li>
 					<li class="nav-item">
-					<a href="create_event.html">	
+					<a href="create_event.php">	
 					<button class="btn btn-success btn-sm" type="submit" id="create_event" data-toggle="tooltip" title="Create Event" >
 							<i class="fa fa-calendar"></i>Create Event</button>
 					</a>

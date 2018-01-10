@@ -396,7 +396,7 @@
 			function initMap() {
 				// Map options
 				var options = {
-					zoom: 16,
+					zoom: 5,
 					center: { lat: 	<?php
 											if (!$conn) 
 											{
