@@ -19,7 +19,7 @@
 	$phone = $_POST["phone"];
 	$ticketPrice = $_POST["ticketPrice"];
 	$videoLink = $_POST["videoLink"];
-	$googleForm = $_POST["googleForm"]
+	$googleForm = $_POST["googleForm"];
 
 	$lat = round($lat,5);
 	$lng = round($lng,5);

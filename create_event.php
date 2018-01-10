@@ -58,10 +58,14 @@
 				<input type="text" class="form-control" id="event-name"><br>
 				<h5><b>Event Category:</b></h5>
 				<select class="form-control" id="event-cat">
+					<option value="Concert">Concert</option>
+					<option value="Debate">Debate</option>
+					<option value="Hackathon">Hackathon</option>
+					<option value="National Day">National Day</option>
+					<option value="Olympiad">Olympiad</option>
 					<option value="Seminar">Seminar</option>
-				    <option value="Music">Music</option>
-				    <option value="Gala">Gala</option>
-				    <option value="Competition">Competition</option>
+					<option value="Sports">Sports</option>
+					<option value="EGaming">E-Gaming</option>
 			  	</select><br>
 				<h5><b>Description:</b></h5>
 				<textarea class="form-control" rows="5" id="event-desc"></textarea><br>
