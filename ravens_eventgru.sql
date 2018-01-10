@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net
 --
 -- Host: localhost:3306
--- Generation Time: Jan 09, 2018 at 10:22 PM
+-- Generation Time: Jan 09, 2018 at 11:30 PM
 -- Server version: 5.6.35
 -- PHP Version: 5.6.30
 
@@ -118,24 +118,24 @@ CREATE TABLE IF NOT EXISTS `Event` (
 --
 
 INSERT INTO `Event` (`EventId`, `EventTitle`, `Description`, `Category`, `PosterPath`, `EventTime`, `EventDate`, `VenueAddress`, `VenuLat`, `VenuLng`, `ContactPhone`, `TicketPrice`, `VideoLink`, `ContactEmail`, `SocietyId`, `Googleform`) VALUES
-(1, 'Throwathon', 'Greate Event', 'Hackathon', 'images/event1.png', '11:00:00', '2018-01-31', 'Address of Event', 30.1234, 70.1235, '03435656123', 300, 'https://www.youtube.com/embed/XGSy3_Czz8k', 'society@gmail.com', 1, ''),
-(2, 'SEECE Futsal  League', 'Greate Event', 'Sports', 'images/event2.png', '11:00:00', '2018-01-31', 'Address of Event', 31.1234, 71.1235, '03435656123', 300, 'https://youtu.be/9B7UIYZrpZg', 'society@gmail.com', 2, ''),
-(3, 'Advanced Workshop On Internet Of Things', 'Greate Event', 'Seminar', 'images/event3.png', '11:00:00', '2018-01-31', 'Address of Event', 32.1235, 72.1235, '03435656123', 300, 'https://youtu.be/9B7UIYZrpZg', 'society@gmail.com', 3, ''),
-(4, 'SMME Gaming Fest', 'Greate Event', 'EGaming', 'images/event4.png', '11:00:00', '2018-01-31', 'Address of Event', 33.1235, 73.1235, '03435656123', 300, 'https://youtu.be/9B7UIYZrpZg', 'society@gmail.com', 4, ''),
-(5, 'Buzz Night 17', 'Greate Event', 'Concert', 'images/event5.png', '11:00:00', '2018-01-31', 'Address of Event', 30.5679, 70.5679, '03435656123', 300, 'https://youtu.be/9B7UIYZrpZg', 'society@gmail.com', 5, ''),
-(6, 'Intra NUST Declamation Championship', 'Greate Event', 'Debate', 'images/event6.png', '11:00:00', '2018-01-31', 'Address of Event', 31.5679, 71.5679, '03435656123', 300, 'https://youtu.be/9B7UIYZrpZg', 'society@gmail.com', 6, ''),
-(7, 'Salute to Quaid', 'Its just an event', 'National Day', 'images/event7.png', '11:00:00', '2018-01-31', 'Address of Event', 32.5679, 72.5679, '03435656123', 300, 'https://youtu.be/9B7UIYZrpZg', 'society@gmail.com', 7, ''),
-(8, 'Music Olympiad', 'Its just an event', 'Olympiad', 'images/event8.png', '11:00:00', '2018-01-31', 'Address of Event', 33.5679, 73.5679, '03435656123', 300, 'https://youtu.be/9B7UIYZrpZg', 'society@gmail.com', 8, ''),
-(9, 'A Day For Orphans', 'Its just an event', 'Community Service', 'images/event9.png', '11:00:00', '2018-01-31', 'Address of Event', 30.6333, 70.6333, '03435656123', 300, 'https://youtu.be/9B7UIYZrpZg', 'society@gmail.com', 9, ''),
-(10, 'TAD Hack', 'Its just an event', 'Hackathon', 'images/event10.png', '11:00:00', '2018-01-31', 'Address of Event', 30.3333, 70.3333, '03435656123', 300, 'https://youtu.be/9B7UIYZrpZg', 'society@gmail.com', 10, ''),
-(11, 'SEECS Sports Gala 2017', 'Its just an event', 'Sports', 'images/event11.png', '11:00:00', '2018-01-31', 'Address of Event', 31.3333, 71.3333, '03435656123', 300, 'https://youtu.be/9B7UIYZrpZg', 'society@gmail.com', 1, ''),
-(12, 'TABA Tech Talk', 'Its just an event', 'Seminar', 'images/event10.png', '11:00:00', '2018-01-31', 'Address of Event', 32.3333, 72.3333, '03435656123', 300, 'https://youtu.be/9B7UIYZrpZg', 'society@gmail.com', 2, ''),
-(13, 'NUS E-Gaming Tournament', 'Its just an event', 'EGaming', 'images/event10.png', '11:00:00', '2018-01-31', 'Address of Event', 33.3333, 73.3333, '03435656123', 300, 'https://youtu.be/9B7UIYZrpZg', 'society@gmail.com', 3, ''),
-(14, 'SEECS Got Talent', 'Its just an event', 'Concert', 'images/event10.png', '11:00:00', '2018-01-31', 'Address of Event', 30.4333, 70.4333, '03435656123', 300, 'https://youtu.be/9B7UIYZrpZg', 'society@gmail.com', 4, ''),
-(15, 'NDS Fortnight Debates XII', 'Its just an event', 'Debate', 'images/event10.png', '11:00:00', '2018-01-31', 'Address of Event', 31.4333, 71.4333, '03435656123', 300, 'https://youtu.be/9B7UIYZrpZg', 'society@gmail.com', 5, ''),
-(16, 'Millat Ka Pasbaan', 'Its just an event', 'National Day', 'images/event10.png', '11:00:00', '2018-01-31', 'Address of Event', 32.4333, 72.4333, '03435656123', 300, 'https://youtu.be/9B7UIYZrpZg', 'society@gmail.com', 6, ''),
-(17, 'NUST Olympiad 17', 'Its just an event', 'Olympiad', 'images/event10.png', '11:00:00', '2018-01-31', 'Address of Event', 33.4333, 73.4333, '03435656123', 300, 'https://youtu.be/9B7UIYZrpZg', 'society@gmail.com', 7, ''),
-(18, 'TYC Chadar Street Store', 'Its just an event', 'Community Service', 'images/event10.png', '11:00:00', '2018-01-31', 'Address of Event', 34.4333, 74.4333, '03435656123', 300, 'https://youtu.be/9B7UIYZrpZg', 'society@gmail.com', 8, '');
+(1, 'Throwathon', 'Greate Event', 'Hackathon', 'images/event1.png', '11:00:00', '2018-01-31', 'Address of Event', 30.1234, 70.1235, '03435656123', 300, 'https://www.youtube.com/embed/XGSy3_Czz8k', 'society@gmail.com', 1, 'https://goo.gl/RZq6r4'),
+(2, 'SEECE Futsal  League', 'Greate Event', 'Sports', 'images/event2.png', '11:00:00', '2018-01-31', 'Address of Event', 31.1234, 71.1235, '03435656123', 300, 'https://youtu.be/9B7UIYZrpZg', 'society@gmail.com', 2, 'https://goo.gl/RZq6r4'),
+(3, 'Advanced Workshop On Internet Of Things', 'Greate Event', 'Seminar', 'images/event3.png', '11:00:00', '2018-01-31', 'Address of Event', 32.1235, 72.1235, '03435656123', 300, 'https://youtu.be/9B7UIYZrpZg', 'society@gmail.com', 3, 'https://goo.gl/RZq6r4'),
+(4, 'SMME Gaming Fest', 'Greate Event', 'EGaming', 'images/event4.png', '11:00:00', '2018-01-31', 'Address of Event', 33.1235, 73.1235, '03435656123', 300, 'https://youtu.be/9B7UIYZrpZg', 'society@gmail.com', 4, 'https://goo.gl/RZq6r4'),
+(5, 'Buzz Night 17', 'Greate Event', 'Concert', 'images/event5.png', '11:00:00', '2018-01-31', 'Address of Event', 30.5679, 70.5679, '03435656123', 300, 'https://youtu.be/9B7UIYZrpZg', 'society@gmail.com', 5, 'https://goo.gl/RZq6r4'),
+(6, 'Intra NUST Declamation Championship', 'Greate Event', 'Debate', 'images/event6.png', '11:00:00', '2018-01-31', 'Address of Event', 31.5679, 71.5679, '03435656123', 300, 'https://youtu.be/9B7UIYZrpZg', 'society@gmail.com', 6, 'https://goo.gl/RZq6r4'),
+(7, 'Salute to Quaid', 'Its just an event', 'National Day', 'images/event7.png', '11:00:00', '2018-01-31', 'Address of Event', 32.5679, 72.5679, '03435656123', 300, 'https://youtu.be/9B7UIYZrpZg', 'society@gmail.com', 7, 'https://goo.gl/RZq6r4'),
+(8, 'Music Olympiad', 'Its just an event', 'Olympiad', 'images/event8.png', '11:00:00', '2018-01-31', 'Address of Event', 33.5679, 73.5679, '03435656123', 300, 'https://youtu.be/9B7UIYZrpZg', 'society@gmail.com', 8, 'https://goo.gl/RZq6r4'),
+(9, 'A Day For Orphans', 'Its just an event', 'Community Service', 'images/event9.png', '11:00:00', '2018-01-31', 'Address of Event', 30.6333, 70.6333, '03435656123', 300, 'https://youtu.be/9B7UIYZrpZg', 'society@gmail.com', 9, 'https://goo.gl/RZq6r4'),
+(10, 'TAD Hack', 'Its just an event', 'Hackathon', 'images/event10.png', '11:00:00', '2018-01-31', 'Address of Event', 30.3333, 70.3333, '03435656123', 300, 'https://youtu.be/9B7UIYZrpZg', 'society@gmail.com', 10, 'https://goo.gl/RZq6r4'),
+(11, 'SEECS Sports Gala 2017', 'Its just an event', 'Sports', 'images/event11.png', '11:00:00', '2018-01-31', 'Address of Event', 31.3333, 71.3333, '03435656123', 300, 'https://youtu.be/9B7UIYZrpZg', 'society@gmail.com', 1, 'https://goo.gl/RZq6r4'),
+(12, 'TABA Tech Talk', 'Its just an event', 'Seminar', 'images/event10.png', '11:00:00', '2018-01-31', 'Address of Event', 32.3333, 72.3333, '03435656123', 300, 'https://youtu.be/9B7UIYZrpZg', 'society@gmail.com', 2, 'https://goo.gl/RZq6r4'),
+(13, 'NUS E-Gaming Tournament', 'Its just an event', 'EGaming', 'images/event10.png', '11:00:00', '2018-01-31', 'Address of Event', 33.3333, 73.3333, '03435656123', 300, 'https://youtu.be/9B7UIYZrpZg', 'society@gmail.com', 3, 'https://goo.gl/RZq6r4'),
+(14, 'SEECS Got Talent', 'Its just an event', 'Concert', 'images/event10.png', '11:00:00', '2018-01-31', 'Address of Event', 30.4333, 70.4333, '03435656123', 300, 'https://youtu.be/9B7UIYZrpZg', 'society@gmail.com', 4, 'https://goo.gl/RZq6r4'),
+(15, 'NDS Fortnight Debates XII', 'Its just an event', 'Debate', 'images/event10.png', '11:00:00', '2018-01-31', 'Address of Event', 31.4333, 71.4333, '03435656123', 300, 'https://youtu.be/9B7UIYZrpZg', 'society@gmail.com', 5, 'https://goo.gl/RZq6r4'),
+(16, 'Millat Ka Pasbaan', 'Its just an event', 'National Day', 'images/event10.png', '11:00:00', '2018-01-31', 'Address of Event', 32.4333, 72.4333, '03435656123', 300, 'https://youtu.be/9B7UIYZrpZg', 'society@gmail.com', 6, 'https://goo.gl/RZq6r4'),
+(17, 'NUST Olympiad 17', 'Its just an event', 'Olympiad', 'images/event10.png', '11:00:00', '2018-01-31', 'Address of Event', 33.4333, 73.4333, '03435656123', 300, 'https://youtu.be/9B7UIYZrpZg', 'society@gmail.com', 7, 'https://goo.gl/RZq6r4'),
+(18, 'TYC Chadar Street Store', 'Its just an event', 'Community Service', 'images/event10.png', '11:00:00', '2018-01-31', 'Address of Event', 34.4333, 74.4333, '03435656123', 300, 'https://youtu.be/9B7UIYZrpZg', 'society@gmail.com', 8, 'https://goo.gl/RZq6r4');
 
 -- --------------------------------------------------------
 
@@ -165,7 +165,37 @@ CREATE TABLE IF NOT EXISTS `Rate` (
   `RatingId` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`RatingId`),
   KEY `ratsoc` (`SocietyId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=25 ;
+
+--
+-- Dumping data for table `Rate`
+--
+
+INSERT INTO `Rate` (`SocietyId`, `Rating`, `RatingId`) VALUES
+(1, 3, 1),
+(1, 4, 2),
+(2, 3, 3),
+(2, 2, 4),
+(3, 3, 5),
+(3, 5, 6),
+(1, 3, 7),
+(1, 3, 8),
+(1, 3, 9),
+(1, 3, 10),
+(4, 5, 11),
+(4, 3, 12),
+(5, 3, 13),
+(5, 5, 14),
+(6, 3, 15),
+(6, 5, 16),
+(7, 4, 17),
+(7, 5, 18),
+(8, 3, 19),
+(8, 5, 20),
+(9, 4, 21),
+(9, 5, 22),
+(10, 3, 23),
+(10, 5, 24);
 
 -- --------------------------------------------------------
 
