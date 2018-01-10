@@ -147,7 +147,7 @@
 			</script>
 		</div>
 	</div><br><hr><br>
-	<div class="container">
+	<div class="container" >
 		<div class="row">
 			<div class="col-lg-2">
 			<h3 data-toggle="popover" title="Event Search Result" data-placement="top" data-content="These are the events based on you search Criteria">Events</h3>
