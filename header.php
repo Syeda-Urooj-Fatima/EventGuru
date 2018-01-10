@@ -62,7 +62,7 @@
 				}
 		</script>
 		<style>
-			#logout,#create_event,#google_signout{
+			#logout,#create_event,#google_signout, #profile{
 				display:none;
 			}
 			a {
@@ -80,6 +80,7 @@
 			{
 				echo "<style> #login,#signup{display:none;}</style>";
 				echo "<style>#logout{display:inline;}</style>";	
+				echo "<style>#profile{display:inline;}</style>";
 			}
 			if(isset($_SESSION["admin"]))
 			{
@@ -127,7 +128,7 @@
 							<div class="input-group input-group-sm">
 								<input type="text" name='query' id="search" class="typeahead" placeholder="Search an event" autocomplete="off" spellcheck="false">
 								<span class="input-group-btn">
-									<button id="search-btn" class="btn btn-success btn-sm" type="submit" formaction="searchEvents.php">
+									<button id="search-btn" class="btn btn-success btn-sm" type="submit" formaction="searchEvent.php">
 										<i class="fa fa-search"></i>
 									</button>
 								</span>
@@ -161,6 +162,17 @@
 							<i class="fa fa-google"></i>Sign out</button>
 					</a>
 					</li>
+
+					<div class="nav-item dropdown" id="profile">
+						<a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle"><img src="https://www.tutorialrepublic.com/examples/images/avatar/3.jpg" alt="Avatar"><?php echo ' '.$_SESSION["username"];?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b class="caret"></b></a>
+						<div class="dropdown-menu dropdown-menu-right">
+							<a href="#" class="dropdown-item"><i class="fa fa-user-o"></i> Profile</a>
+							<a href="#" class="dropdown-item"><i class="fa fa-calendar-o"></i> Calendar</a>
+							<a href="#" class="dropdown-item"><i class="fa fa-sliders"></i> Settings</a>
+							<div class="dropdown-divider"></div>
+							<a href="#" class="dropdown-item"><i class="material-icons">&#xE8AC;</i> Logout</a>
+						</div>
+					</div>
 				</ul>
 			</div>
 		</nav>
