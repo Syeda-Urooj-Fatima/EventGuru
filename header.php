@@ -103,6 +103,7 @@
 			echo "<style> #login,#signup{display:inline;}</style>";
 			echo "<style>#google_signout{display:none;}</style>";	
 		}*/
+
 	?>
 		<nav id="nav-top" class="navbar navbar-expand-lg">
 			<a class="navbar navbar-brand logo" href="index.php">
@@ -155,7 +156,7 @@
 					</li>
 
 					<li class="nav-item">
-					<a href="https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=http://localhost/WebProject/index.php" onclick='window.location="google_signout.php";'>	
+					<a href="https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=http://localhost/WebProject/google_signout.php">	
 					<button class="btn btn-success btn-sm" type="submit" id="google_signout" data-toggle="tooltip" title="Sign out" >
 							<i class="fa fa-google"></i>Sign out</button>
 					</a>

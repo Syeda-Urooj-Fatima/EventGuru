@@ -23,7 +23,7 @@
   $user = mysqli_real_escape_string($conn, $user);
   $pass = mysqli_real_escape_string($conn, $pass);
   //echo "<script>console.log('YES')</script>";
-  $sql='SELECT * FROM Accounts Where UserName="'.$user.'"';
+  $sql='SELECT * FROM accounts Where UserName="'.$user.'"';
 
   if($result=mysqli_query($conn,$sql))
   {
