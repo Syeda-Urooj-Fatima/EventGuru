@@ -48,7 +48,7 @@
 			$servername='localhost';
 			$username='admin1';
 			$password='admin1';
-			$database='event_gru';
+			$database='ravens_eventgru';
 			$conn= mysqli_connect($servername,$username,$password,$database);
 			if (!$conn)
 			{
@@ -134,9 +134,14 @@
 				    <h2>About</h2>
 				    <p>We at EventGuru promise to provide you with timely updates regarding the events around you</p>
 				    <br/>
-				    <h2>Rate Us</h2>
-				    <span id="rate" class="rateit">
-	  				</span>
+				    <h2>More</h2>
+				    <a href="Statistics.php">
+				    	<button type= "submit" onclick="" class="btn btn-danger">Website stats</button>
+				    </a>
+				    &nbsp;&nbsp;&nbsp;
+				    <a href="MeetTeam.php">
+				    	<button type= "button" onclick="" name="meetTeam" id="meetTeam" class="btn btn-danger">Meet the team</button>
+					</a>
 			    </div>
 			</div>
 		</div>

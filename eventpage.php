@@ -3,37 +3,34 @@
 <html>
 
 	<head>
+		<title>Event Guru - Event Page</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
-		<link rel="stylesheet" href="css/styles.css">
-
-
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="bootstrap4/css/bootstrap.min.css" />
+		<script src="jquery/jquery-3.2.1.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+		<script src="bootstrap4/js/bootstrap.min.js"></script>
 
 		<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
 		<script type="text/javascript" src="bower_components/moment/min/moment.min.js"></script>
 		<script type="text/javascript" src="bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
 		<link rel="stylesheet" href="bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css"
 		/>
-		<!-- <link rel="stylesheet" href="plugins/rateit.js-master/scripts/rateit.css">
-		<script src="plugins/rateit.js-master/scripts/jquery.rateit.min.js"></script> -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+
+		<link rel="stylesheet" href="plugins/rateit.js-master/scripts/rateit.css">
+		<script src="plugins/rateit.js-master/scripts/jquery.rateit.min.js"></script> 
+
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-		<!-- <link rel="stylesheet" href="css/header.css" />
-		<link rel="stylesheet" href="css/footer.css">
-        <script src="head_foot.js"></script> -->
+		<link rel="stylesheet" href="css/styles.css">
         
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
 		<script  type="text/javascript" src="plugins/typeahead.bundle.js"></script>
 		<script type="text/javascript">
 			function googleTranslateElementInit() {
 				new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
 			}
         </script>
+        <link rel="icon" href="images/icon.png">
 
 	</head>
 
@@ -70,13 +67,23 @@
 									{
 									    // output data of each row
 
-									    while($row = $result->fetch_assoc()) 
+									    while($row1 = $result->fetch_assoc()) 
 									    {
-									        echo $row["EventTitle"]. "<br>";
+									        echo $row1["EventTitle"];
 										}
 									}
 								}
 						?>
+						
+						  <button id="reg" onClick="redirect()" style="float: right;">Register Yourself
+							    <script type="text/javascript">
+							    function redirect()
+							    {
+							    var url = "https://goo.gl/RZq6r4";
+							    window.location = url;
+							    }
+							    </script>
+							</button>
 					</h1><input id="event-id" value="<?php echo $eventId; ?>" hidden>
 					<hr>
 					<i class="fa fa-bank" style="font-size:28px"></i>
@@ -88,7 +95,7 @@
 								else
 								{
 
-									$result=mysqli_query($conn,"SELECT UniversityName FROM university INNER JOIN society ON university.UniversityID =  society.UniversityID INNER JOIN event ON society.Societyid=event.Societyid WHERE Eventid = '$eventId'");
+									$result=mysqli_query($conn,"SELECT UniversityName,SocietyName FROM university INNER JOIN society ON university.UniversityID =  society.UniversityID INNER JOIN event ON society.Societyid=event.Societyid WHERE Eventid = '$eventId'");
 									if ($result->num_rows > 0) 
 									{
 									    // output data of each row
@@ -112,18 +119,16 @@
 								{
 
 									$result=mysqli_query($conn,"SELECT SocietyName FROM society INNER JOIN event ON society.Societyid=event.Societyid WHERE Eventid = '$eventId'");
-									if ($result->num_rows > 0) 
-									{
-									    // output data of each row
+										$row = ($result->fetch_assoc());
 
-									    while($row = $result->fetch_assoc()) 
-									    {
-									        echo $row["SocietyName"]. "<br>";
-										}
-									}
-								
-								}
+									$result=mysqli_query($conn,"SELECT AVG(Rating) as Rate FROM rate INNER JOIN event ON rate.SocietyId=event.SocietyId where EventID = '$eventId'");
+									$row1 = ($result->fetch_assoc());
+									$sum = $row1['Rate'];
+									        echo $row["SocietyName"];
+									        echo "      Rated : ".$sum;	
+								}							
 						?>
+												<span class="fa fa-star checked" id="ratestar" style="font-size:28px"  ></span>
 					</p>
 					<p>
 						<i class="fa fa-money"  style="font-size:28px"></i>
@@ -172,9 +177,9 @@
 									{
 									    // output data of each row
 
-									    while($row = $result->fetch_assoc()) 
+									    while($row1 = $result->fetch_assoc()) 
 									    {
-									        echo $row["PosterPath"];
+									        echo $row1["PosterPath"];
 										}
 									}
 								
@@ -183,7 +188,7 @@
 						" alt="dramafest cover">
 					<!-- so that image scales with the parent element -->
 					<hr>
-					<iframe width="100%" height="250px">
+					<iframe width="100%" height="250px"
 						src="
 						<?php
 								if (!$conn) 
@@ -234,11 +239,11 @@
 					<hr>
 				</div>
 				<div class="Sidebars col-sm-12 col-md-5 col-xl-4">
-					<div>
+					<div id="r1">
 						<div class="header rounded">
 							<h4>Ratings</h4>
 						</div>
-						<div class="rating rounded">
+						<div class="rounded rating">
 							<span class="rateit" id="rateitt" onclick="rrr()" data-rateit-step="1" data-rateit-resetable='false'> </span>
 							<script type="text/javascript">
 							    $("#rateitt").click(function () {
@@ -254,6 +259,7 @@
 						<div class="header rounded">
 							<h4>Location</h4>
 						</div>
+
 						<div id="map">
 						</div>
 						<br>
@@ -500,6 +506,7 @@
 					echo "<script type=\"text/javascript\">
 						document.getElementById('comment-textarea').disabled=false;
 						</script>";
+						echo "<style> #r1{display:inline;}</style>";
 				}
 			}
 			elseif(!isset($_SESSION["userinfo"]) or $_SESSION["userifno"]=="wrong")
@@ -507,8 +514,10 @@
 				echo "<script type=\"text/javascript\">
 						document.getElementById('comment-textarea').disabled=true;
 						</script>";
+						echo "<style> #r1{display:none;}</style>";
 			}
 		?>
+	
 		
 	</body>
 

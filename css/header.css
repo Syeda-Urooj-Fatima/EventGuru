@@ -122,3 +122,24 @@ li:hover, button:hover{
   background-color: #bf1c1c;
   color: #FFFFFF;
 }
+
+#profile a{
+  color:black;
+  font-size:13px;
+}
+
+#profile > a{
+  color:white;
+}
+
+#profile > a:hover, #profile > a:active{
+  color:white;
+  background-color:#e51c19;
+}
+
+#profile a:hover{
+  color:white;
+  background-color:#b20a0a;
+}
+
+

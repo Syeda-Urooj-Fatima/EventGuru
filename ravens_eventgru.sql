@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jan 09, 2018 at 11:23 AM
+-- Generation Time: Jan 09, 2018 at 11:26 PM
 -- Server version: 5.7.19
 -- PHP Version: 5.6.31
 
@@ -73,6 +73,7 @@ CREATE TABLE IF NOT EXISTS `event` (
   `VideoLink` varchar(300) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `ContactEmail` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `SocietyId` int(11) NOT NULL,
+  `Googleform` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`EventId`),
   UNIQUE KEY `EventId_3` (`EventId`),
   KEY `EventId` (`EventId`),
@@ -84,25 +85,25 @@ CREATE TABLE IF NOT EXISTS `event` (
 -- Dumping data for table `event`
 --
 
-INSERT INTO `event` (`EventId`, `EventTitle`, `Description`, `Category`, `PosterPath`, `EventTime`, `EventDate`, `VenueAddress`, `VenuLat`, `VenuLng`, `ContactPhone`, `TicketPrice`, `VideoLink`, `ContactEmail`, `SocietyId`) VALUES
-(1, 'Science Bee', 'Greate Event', 'Hackathon', 'images/event1.png', '11:00:00', '2018-01-31', 'Address of Event', 30.1234, 70.1235, '03435656123', 300, 'https://www.youtube.com/embed/XGSy3_Czz8k', 'society@gmail.com', 1),
-(2, 'Sports Gala', 'Greate Event', 'Sports', 'images/event2.png', '11:00:00', '2018-01-31', 'Address of Event', 31.1234, 71.1235, '03435656123', 300, 'https://www.youtube.com/embed/XGSy3_Czz8k', 'society@gmail.com', 2),
-(3, 'Engineer 3.0', 'Greate Event', 'Seminar', 'images/event3.png', '11:00:00', '2018-01-31', 'Address of Event', 32.1235, 72.1235, '03435656123', 300, 'https://www.youtube.com/embed/XGSy3_Czz8k', 'society@gmail.com', 3),
-(4, 'Dota2 Frenzies', 'Greate Event', 'EGaming', 'images/event4.png', '11:00:00', '2018-01-31', 'Address of Event', 33.1235, 73.1235, '03435656123', 300, 'https://www.youtube.com/embed/XGSy3_Czz8k', 'society@gmail.com', 4),
-(5, 'Buzz Night', 'Greate Event', 'Concert', 'images/event5.png', '11:00:00', '2018-01-31', 'Address of Event', 30.5679, 70.5679, '03435656123', 300, 'https://www.youtube.com/embed/XGSy3_Czz8k', 'society@gmail.com', 5),
-(6, 'Buzme Adab', 'Greate Event', 'Debate', 'images/event6.png', '11:00:00', '2018-01-31', 'Address of Event', 31.5679, 71.5679, '03435656123', 300, 'https://www.youtube.com/embed/XGSy3_Czz8k', 'society@gmail.com', 6),
-(7, 'My Event 7', 'Its just an event', 'National Day', 'images/event7.png', '11:00:00', '2018-01-31', 'Address of Event', 32.5679, 72.5679, '03435656123', 300, 'https://www.youtube.com/embed/XGSy3_Czz8k', 'society@gmail.com', 7),
-(8, 'My Event 8', 'Its just an event', 'Olympiad', 'images/event8.png', '11:00:00', '2018-01-31', 'Address of Event', 33.5679, 73.5679, '03435656123', 300, 'https://www.youtube.com/embed/XGSy3_Czz8k', 'society@gmail.com', 8),
-(9, 'My Event 9', 'Its just an event', 'Community Service', 'images/event9.png', '11:00:00', '2018-01-31', 'Address of Event', 30.6333, 70.6333, '03435656123', 300, 'https://www.youtube.com/embed/XGSy3_Czz8k', 'society@gmail.com', 9),
-(10, 'My Event 10', 'Its just an event', 'Hackathon', 'images/event10.png', '11:00:00', '2018-01-31', 'Address of Event', 30.3333, 70.3333, '03435656123', 300, 'https://www.youtube.com/embed/XGSy3_Czz8k', 'society@gmail.com', 10),
-(11, 'My Event 12', 'Its just an event', 'Sports', 'images/event11.png', '11:00:00', '2018-01-31', 'Address of Event', 31.3333, 71.3333, '03435656123', 300, 'https://www.youtube.com/embed/XGSy3_Czz8k', 'society@gmail.com', 1),
-(12, 'My Event 12', 'Its just an event', 'Seminar', 'images/event10.png', '11:00:00', '2018-01-31', 'Address of Event', 32.3333, 72.3333, '03435656123', 300, 'https://www.youtube.com/embed/XGSy3_Czz8k', 'society@gmail.com', 2),
-(13, 'My Event 13', 'Its just an event', 'EGaming', 'images/event10.png', '11:00:00', '2018-01-31', 'Address of Event', 33.3333, 73.3333, '03435656123', 300, 'https://www.youtube.com/embed/XGSy3_Czz8k', 'society@gmail.com', 3),
-(14, 'My Event 14', 'Its just an event', 'Concert', 'images/event10.png', '11:00:00', '2018-01-31', 'Address of Event', 30.4333, 70.4333, '03435656123', 300, 'https://www.youtube.com/embed/XGSy3_Czz8k', 'society@gmail.com', 4),
-(15, 'My Event 15', 'Its just an event', 'Debate', 'images/event10.png', '11:00:00', '2018-01-31', 'Address of Event', 31.4333, 71.4333, '03435656123', 300, 'https://www.youtube.com/embed/XGSy3_Czz8k', 'society@gmail.com', 5),
-(16, 'My Event 16', 'Its just an event', 'National Day', 'images/event10.png', '11:00:00', '2018-01-31', 'Address of Event', 32.4333, 72.4333, '03435656123', 300, 'https://www.youtube.com/embed/XGSy3_Czz8k', 'society@gmail.com', 6),
-(17, 'My Event 17', 'Its just an event', 'Olympiad', 'images/event10.png', '11:00:00', '2018-01-31', 'Address of Event', 33.4333, 73.4333, '03435656123', 300, 'https://www.youtube.com/embed/XGSy3_Czz8k', 'society@gmail.com', 7),
-(18, 'My Event 18', 'Its just an event', 'Community Service', 'images/event10.png', '11:00:00', '2018-01-31', 'Address of Event', 34.4333, 74.4333, '03435656123', 300, 'https://www.youtube.com/embed/XGSy3_Czz8k', 'society@gmail.com', 8);
+INSERT INTO `event` (`EventId`, `EventTitle`, `Description`, `Category`, `PosterPath`, `EventTime`, `EventDate`, `VenueAddress`, `VenuLat`, `VenuLng`, `ContactPhone`, `TicketPrice`, `VideoLink`, `ContactEmail`, `SocietyId`, `Googleform`) VALUES
+(1, 'Science Bee', 'Greate Event', 'Hackathon', 'images/event1.png', '11:00:00', '2018-01-31', 'Address of Event', 30.1234, 70.1235, '03435656123', 300, 'https://www.youtube.com/embed/XGSy3_Czz8k', 'society@gmail.com', 1, 'https://goo.gl/RZq6r4'),
+(2, 'Sports Gala', 'Greate Event', 'Sports', 'images/event2.png', '11:00:00', '2018-01-31', 'Address of Event', 31.1234, 71.1235, '03435656123', 300, 'https://www.youtube.com/embed/XGSy3_Czz8k', 'society@gmail.com', 2, 'https://goo.gl/RZq6r4'),
+(3, 'Engineer 3.0', 'Greate Event', 'Seminar', 'images/event3.png', '11:00:00', '2018-01-31', 'Address of Event', 32.1235, 72.1235, '03435656123', 300, 'https://www.youtube.com/embed/XGSy3_Czz8k', 'society@gmail.com', 3, 'https://goo.gl/RZq6r4'),
+(4, 'Dota2 Frenzies', 'Greate Event', 'EGaming', 'images/event4.png', '11:00:00', '2018-01-31', 'Address of Event', 33.1235, 73.1235, '03435656123', 300, 'https://www.youtube.com/embed/XGSy3_Czz8k', 'society@gmail.com', 4, 'https://goo.gl/RZq6r4'),
+(5, 'Buzz Night', 'Greate Event', 'Concert', 'images/event5.png', '11:00:00', '2018-01-31', 'Address of Event', 30.5679, 70.5679, '03435656123', 300, 'https://www.youtube.com/embed/XGSy3_Czz8k', 'society@gmail.com', 5, 'https://goo.gl/RZq6r4'),
+(6, 'Buzme Adab', 'Greate Event', 'Debate', 'images/event6.png', '11:00:00', '2018-01-31', 'Address of Event', 31.5679, 71.5679, '03435656123', 300, 'https://www.youtube.com/embed/XGSy3_Czz8k', 'society@gmail.com', 6, 'https://goo.gl/RZq6r4'),
+(7, 'My Event 7', 'Its just an event', 'National Day', 'images/event7.png', '11:00:00', '2018-01-31', 'Address of Event', 32.5679, 72.5679, '03435656123', 300, 'https://www.youtube.com/embed/XGSy3_Czz8k', 'society@gmail.com', 7, 'https://goo.gl/RZq6r4'),
+(8, 'My Event 8', 'Its just an event', 'Olympiad', 'images/event8.png', '11:00:00', '2018-01-31', 'Address of Event', 33.5679, 73.5679, '03435656123', 300, 'https://www.youtube.com/embed/XGSy3_Czz8k', 'society@gmail.com', 8, 'https://goo.gl/RZq6r4'),
+(9, 'My Event 9', 'Its just an event', 'Community Service', 'images/event9.png', '11:00:00', '2018-01-31', 'Address of Event', 30.6333, 70.6333, '03435656123', 300, 'https://www.youtube.com/embed/XGSy3_Czz8k', 'society@gmail.com', 9, 'https://goo.gl/RZq6r4'),
+(10, 'My Event 10', 'Its just an event', 'Hackathon', 'images/event10.png', '11:00:00', '2018-01-31', 'Address of Event', 30.3333, 70.3333, '03435656123', 300, 'https://www.youtube.com/embed/XGSy3_Czz8k', 'society@gmail.com', 10, 'https://goo.gl/RZq6r4'),
+(11, 'My Event 12', 'Its just an event', 'Sports', 'images/event11.png', '11:00:00', '2018-01-31', 'Address of Event', 31.3333, 71.3333, '03435656123', 300, 'https://www.youtube.com/embed/XGSy3_Czz8k', 'society@gmail.com', 1, 'https://goo.gl/RZq6r4'),
+(12, 'My Event 12', 'Its just an event', 'Seminar', 'images/event10.png', '11:00:00', '2018-01-31', 'Address of Event', 32.3333, 72.3333, '03435656123', 300, 'https://www.youtube.com/embed/XGSy3_Czz8k', 'society@gmail.com', 2, 'https://goo.gl/RZq6r4'),
+(13, 'My Event 13', 'Its just an event', 'EGaming', 'images/event10.png', '11:00:00', '2018-01-31', 'Address of Event', 33.3333, 73.3333, '03435656123', 300, 'https://www.youtube.com/embed/XGSy3_Czz8k', 'society@gmail.com', 3, 'https://goo.gl/RZq6r4'),
+(14, 'My Event 14', 'Its just an event', 'Concert', 'images/event10.png', '11:00:00', '2018-01-31', 'Address of Event', 30.4333, 70.4333, '03435656123', 300, 'https://www.youtube.com/embed/XGSy3_Czz8k', 'society@gmail.com', 4, 'https://goo.gl/RZq6r4'),
+(15, 'My Event 15', 'Its just an event', 'Debate', 'images/event10.png', '11:00:00', '2018-01-31', 'Address of Event', 31.4333, 71.4333, '03435656123', 300, 'https://www.youtube.com/embed/XGSy3_Czz8k', 'society@gmail.com', 5, 'https://goo.gl/RZq6r4'),
+(16, 'My Event 16', 'Its just an event', 'National Day', 'images/event10.png', '11:00:00', '2018-01-31', 'Address of Event', 32.4333, 72.4333, '03435656123', 300, 'https://www.youtube.com/embed/XGSy3_Czz8k', 'society@gmail.com', 6, 'https://goo.gl/RZq6r4'),
+(17, 'My Event 17', 'Its just an event', 'Olympiad', 'images/event10.png', '11:00:00', '2018-01-31', 'Address of Event', 33.4333, 73.4333, '03435656123', 300, 'https://www.youtube.com/embed/XGSy3_Czz8k', 'society@gmail.com', 7, 'https://goo.gl/RZq6r4'),
+(18, 'My Event 18', 'Its just an event', 'Community Service', 'images/event10.png', '11:00:00', '2018-01-31', 'Address of Event', 34.4333, 74.4333, '03435656123', 300, 'https://www.youtube.com/embed/XGSy3_Czz8k', 'society@gmail.com', 8, 'https://goo.gl/RZq6r4');
 
 -- --------------------------------------------------------
 
@@ -134,7 +135,33 @@ CREATE TABLE IF NOT EXISTS `rate` (
   `RatingId` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`RatingId`),
   KEY `ratsoc` (`SocietyId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `rate`
+--
+
+INSERT INTO `rate` (`SocietyId`, `Rating`, `RatingId`) VALUES
+(1, 5, 1),
+(1, 4, 2),
+(9, 4, 3),
+(9, 2, 4),
+(8, 5, 5),
+(8, 3, 6),
+(6, 2, 7),
+(6, 3, 8),
+(2, 3, 9),
+(2, 4, 10),
+(10, 5, 11),
+(10, 4, 12),
+(4, 4, 13),
+(4, 5, 14),
+(3, 4, 15),
+(3, 3, 16),
+(5, 4, 17),
+(5, 3, 18),
+(7, 4, 19),
+(7, 3, 20);
 
 -- --------------------------------------------------------
 

@@ -12,7 +12,7 @@
   $port='3306';
   $username='admin1';
   $password='admin1';
-  $database='event_gru';
+  $database='ravens_eventgru';
   $conn= mysqli_connect($servername,$username,$password,$database,$port);
   if (!$conn)
   {
@@ -23,7 +23,7 @@
   $user = mysqli_real_escape_string($conn, $user);
   $pass = mysqli_real_escape_string($conn, $pass);
   //echo "<script>console.log('YES')</script>";
-  $sql='SELECT * FROM Accounts Where UserName="'.$user.'"';
+  $sql='SELECT * FROM accounts Where UserName="'.$user.'"';
 
   if($result=mysqli_query($conn,$sql))
   {
