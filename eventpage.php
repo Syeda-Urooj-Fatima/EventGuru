@@ -501,7 +501,7 @@
 			<?php
 			if(isset($_SESSION["userinfo"]))
 			{
-				if($_SESSION["userifno"]=="correct")
+				if($_SESSION["userinfo"]=="correct")
 				{
 					echo "<script type=\"text/javascript\">
 						document.getElementById('comment-textarea').disabled=false;
@@ -509,7 +509,7 @@
 						echo "<style> #r1{display:inline;}</style>";
 				}
 			}
-			elseif(!isset($_SESSION["userinfo"]) or $_SESSION["userifno"]=="wrong")
+			elseif(!isset($_SESSION["userinfo"]) or $_SESSION["userinfo"]=="wrong")
 			{
 				echo "<script type=\"text/javascript\">
 						document.getElementById('comment-textarea').disabled=true;

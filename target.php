@@ -74,7 +74,7 @@
 	    echo "success";
 	}
 
-	$sql1 = "select SocietyId from Admin where username='ayesha'";
+	$sql1 = "select SocietyId from Admin where username='$admin'";
 	$result = mysqli_query($conn, $sql1);
 	if (mysqli_num_rows($result) > 0) {
 	    while($row = mysqli_fetch_assoc($result)) {
@@ -84,7 +84,7 @@
 	    echo "0 results";
 	}
 
-	$sql = "insert into Event (EventId,EventTitle,Description,Category,PosterPath,VenueAddress,VenuLat,VenuLng,ContactPhone,VideoLink,ContactEmail,EventDate,EventTime,SocietyId) values ('$EventId','$name','$description','$category','$posterPath','$address','$lat','$lng','$phone','$videoLink','$email','$date','$time','$SocietyId')";
+	$sql = "insert into Event (EventId,EventTitle,Description,Category,PosterPath,VenueAddress,VenuLat,VenuLng,ContactPhone,VideoLink,ContactEmail,EventDate,EventTime,SocietyId, Googleform) values ('$EventId','$name','$description','$category','$posterPath','$address','$lat','$lng','$phone','$videoLink','$email','$date','$time','$SocietyId', '$googleForm')";
 
 	if (mysqli_query($conn, $sql)) {
 	    echo "New record created successfully";
@@ -96,6 +96,6 @@
 		base64_to_jpeg($poster,$posterPath);
 	}
 
-	header('test.php?ID='.$EventId);
+	header('Location:eventpage.php?ID='.$EventId);
 
 ?>
