@@ -74,17 +74,31 @@
 									}
 								}
 						?>
+					</h1>
 						
+						 <?php
+
+							    		if (!$conn) 
+								{
+									die("Failed to connect to mysql" . mysqli_connect_error());
+								}
+								else
+								{
+
+									$result=mysqli_query($conn,"SELECT Googleform FROM  event WHERE Eventid = '$eventId'");
+										$row = ($result->fetch_assoc());
+								}							
+						?>
 						  <button id="reg" onClick="redirect()" style="float: right;">Register Yourself
 							    <script type="text/javascript">
 							    function redirect()
 							    {
-							    var url = "https://goo.gl/RZq6r4";
+							    var url = "<?php echo $row["Googleform"]; ?>";
 							    window.location = url;
-							    }
+							   }
 							    </script>
 							</button>
-					</h1><input id="event-id" value="<?php echo $eventId; ?>" hidden>
+					<input id="event-id" value="<?php echo $eventId; ?>" hidden>
 					<hr>
 					<i class="fa fa-bank" style="font-size:28px"></i>
 						<?php
