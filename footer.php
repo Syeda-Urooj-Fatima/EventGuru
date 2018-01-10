@@ -135,8 +135,13 @@
 				    <p>We at EventGuru promise to provide you with timely updates regarding the events around you</p>
 				    <br/>
 				    <h2>More</h2>
-				    <button type= "button" onclick="" name="siteStats" id="siteStats" class="btn btn-danger">Website stats</button>&nbsp;&nbsp;&nbsp;&nbsp;
-				    <button type= "button" onclick="" name="meetTeam" id="meetTeam" class="btn btn-danger">Meet the team</button>
+				    <a href="Statistics.php">
+				    	<button type= "submit" onclick="" class="btn btn-danger">Website stats</button>
+				    </a>
+				    &nbsp;&nbsp;&nbsp;
+				    <a href="MeetTeam.php">
+				    	<button type= "button" onclick="" name="meetTeam" id="meetTeam" class="btn btn-danger">Meet the team</button>
+					</a>
 			    </div>
 			</div>
 		</div>
