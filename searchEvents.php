@@ -23,12 +23,8 @@
 		$rows=array();
 	    if(mysqli_num_rows($result)>0)
 		{
-			$i=0;
-			while ( $rows[$i]=mysqli_fetch_array($result, MYSQLI_ASSOC) ){
-		    echo $rows[$i]['EventTitle'];
-		    $i=$i+1;
-			}
-
+		    $rows=mysqli_fetch_all($result, MYSQLI_ASSOC);
+		    echo "\n".json_encode($rows);
 		    mysqli_free_result($result);
 		    mysqli_close($conn);
 		    exit();
