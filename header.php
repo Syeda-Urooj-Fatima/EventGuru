@@ -144,10 +144,10 @@
 							<i class="fa fa-sign-in"></i> Sign up</button>
 					</li>
 					<li class="nav-item">
-					<a href="logout.php?logout">	
+					<!--<a href="logout.php?logout">	
 					<button class="btn btn-success btn-sm" type="submit" id="logout" data-toggle="tooltip" title="Logout" >
 							<i class="fa fa-sign-out"></i>Log out</button>
-					</a>
+					</a>-->
 					</li>
 					<li class="nav-item">
 					<a href="create_event.html">	
@@ -164,13 +164,11 @@
 					</li>
 
 					<div class="nav-item dropdown" id="profile">
-						<a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle"><img src="https://www.tutorialrepublic.com/examples/images/avatar/3.jpg" alt="Avatar"><?php echo ' '.$_SESSION["username"];?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b class="caret"></b></a>
+						<a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle"><i class="fa fa-user"></i><?php echo ' '.$_SESSION["username"];?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b class="caret"></b></a>
 						<div class="dropdown-menu dropdown-menu-right">
 							<a href="#" class="dropdown-item"><i class="fa fa-user-o"></i> Profile</a>
-							<a href="#" class="dropdown-item"><i class="fa fa-calendar-o"></i> Calendar</a>
-							<a href="#" class="dropdown-item"><i class="fa fa-sliders"></i> Settings</a>
 							<div class="dropdown-divider"></div>
-							<a href="#" class="dropdown-item"><i class="material-icons">&#xE8AC;</i> Logout</a>
+							<a href="logout.php?logout" class="dropdown-item"><i class="fa fa-sign-out"></i> Logout</a>
 						</div>
 					</div>
 				</ul>
