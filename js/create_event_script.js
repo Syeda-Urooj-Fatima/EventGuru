@@ -74,6 +74,7 @@ function save() {
 	$("#form-phone").val($("#contact-phone").val());
 	$("#form-ticketPrice").val($("#ticketPrice").val());
 	$("#form-ticketPrice").val($("#videoLink").val());
+	$("#form-googleForm").val($("#google-form").val());
 
 	if(window.img){
 		$("#poster-area").croppie('result', {

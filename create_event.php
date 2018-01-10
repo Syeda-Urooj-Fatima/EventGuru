@@ -56,10 +56,14 @@
 				<input type="text" class="form-control" id="event-name"><br>
 				<h5><b>Event Category:</b></h5>
 				<select class="form-control" id="event-cat">
+					<option value="Concert">Concert</option>
+					<option value="Debate">Debate</option>
+					<option value="Hackathon">Hackathon</option>
+					<option value="National Day">National Day</option>
+					<option value="Olympiad">Olympiad</option>
 					<option value="Seminar">Seminar</option>
-				    <option value="Music">Music</option>
-				    <option value="Gala">Gala</option>
-				    <option value="Competition">Competition</option>
+					<option value="Sports">Sports</option>
+					<option value="EGaming">E-Gaming</option>
 			  	</select><br>
 				<h5><b>Description:</b></h5>
 				<textarea class="form-control" rows="5" id="event-desc"></textarea><br>
@@ -146,11 +150,19 @@
 				<h5><b>Ticket Price:</b></h5>
 				<input type="number" class="form-control" id="ticket-price">
 			</div>
-		</div><div class="row">
+		</div>
+		<div class="row">
 			<div class="col-md-1"></div>
 			<div class="col-md-4">
 				<h5><b>Video Link:</b></h5>
 				<input type="url" class="form-control" id="video-link">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-1"></div>
+			<div class="col-md-4">
+				<h5><b>Google Form:</b></h5>
+				<input type="url" class="form-control" id="google-form">
 			</div>
 		</div>
 	</div>
@@ -170,6 +182,7 @@
 		<input id="form-phone" name="phone">
 		<input id="form-ticketPrice" name="ticketPrice">
 		<input id="form-videoLink" name="videoLink">
+		<input id="form-googleForm" name="googleForm">
 	</form>
 
 </body>
