@@ -8,7 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- google login -->
 	<script src="https://apis.google.com/js/platform.js" async defer></script>
-	<meta name="google-signin-client_id" content="698968730284-cvp920b6ipmgukv1o2k1nm3hmv0053gl.apps.googleusercontent.com"> 
     
     <link rel="stylesheet" href="bootstrap4/css/bootstrap.min.css" />
 	<script src="jquery/jquery-3.2.1.min.js"></script>

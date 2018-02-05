@@ -157,7 +157,7 @@
 					</li>
 
 					<li class="nav-item">
-					<a href="https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=http://localhost/WebProject/google_signout.php">	
+					<a href="https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=http://localhost/web/EventGuru/google_signout.php">	
 					<button class="btn btn-success btn-sm" type="submit" id="google_signout" data-toggle="tooltip" title="Sign out" >
 							<i class="fa fa-google"></i>Sign out</button>
 					</a>
